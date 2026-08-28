@@ -234,6 +234,35 @@
 }
 </script>
 
+<!-- GOOGLE ECOSYSTEM & PERFORMANCE PRECONNECTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://www.google.com">
+<link rel="dns-prefetch" href="https://maps.google.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://www.youtube.com">
+
+<!-- GOOGLE SEARCH CONSOLE VERIFICATION HOOK (Auto-enabled) -->
+<meta name="google-site-verification" content="google-search-console-verification-pending">
+
+<!-- GOOGLE TAG MANAGER & ANALYTICS 4 DATA LAYER ECOSYSTEM -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  // Real Estate Conversion Events
+  window.trackRealEstateLead = function(leadType, config) {
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        event_category: 'Real Estate',
+        event_label: leadType,
+        value: config || 'General'
+      });
+    }
+  };
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {

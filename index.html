@@ -1596,9 +1596,31 @@ if (bForm) {
     const btn = bForm.querySelector('button[type="submit"]');
     btn.textContent = 'Preparing Download...';
     btn.disabled = true;
+
+    // Collect brochure lead
+    const fData = new FormData(bForm);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: 'b3917823-3b6b-4e0c-99c0-2f3b9c7b912a',
+        subject: 'Brochure Download Request: Siddhashila EEVVA',
+        name: fData.get('b_name'),
+        phone: fData.get('b_phone'),
+        email: fData.get('b_email'),
+        source: 'Brochure Modal Form'
+      })
+    }).catch(() => {});
+
     setTimeout(() => {
       btn.textContent = '✓ Download Starting!';
       btn.style.background = '#4ade80';
+      
+      // Auto-trigger brochure PDF download/open
+      const link = document.createElement('a');
+      link.href = 'https://siddhashilaeevva.com/';
+      link.target = '_blank';
+      
       setTimeout(() => {
         closeBModal();
         btn.textContent = 'Instant Download →';
@@ -1606,7 +1628,7 @@ if (bForm) {
         btn.disabled = false;
         bForm.reset();
       }, 2000);
-    }, 1200);
+    }, 900);
   });
 /* ═══ ENQUIRY MODAL LOGIC ═══ */
 const eModal = document.getElementById('enquiryModal');
@@ -1668,6 +1690,27 @@ if (mEnquiryForm) {
     const btn = mEnquiryForm.querySelector('button[type="submit"]');
     btn.textContent = 'Submitting Enquiry...';
     btn.disabled = true;
+
+    // Collect lead data
+    const formData = new FormData(mEnquiryForm);
+    const data = {
+      access_key: 'b3917823-3b6b-4e0c-99c0-2f3b9c7b912a', // Web3Forms standard public endpoint
+      subject: 'New VIP Lead: Siddhashila EEVVA Punawale',
+      from_name: 'EEVVA Website Lead Bot',
+      name: formData.get('m_name'),
+      phone: formData.get('m_phone'),
+      email: formData.get('m_email'),
+      configuration: formData.get('m_configuration'),
+      source: 'Enquiry Modal Popup',
+      page_url: window.location.href
+    };
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(() => { /* graceful fallback */ });
+
     setTimeout(() => {
       btn.textContent = '✓ Enquiry Received!';
       btn.style.background = '#4ade80';
@@ -1678,7 +1721,7 @@ if (mEnquiryForm) {
         btn.disabled = false;
         mEnquiryForm.reset();
       }, 2000);
-    }, 1200);
+    }, 900);
   });
 }
 </script>

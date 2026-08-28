@@ -1,3 +1,8 @@
+# Canonical Domain Enforcement (Prevents Google duplicate content penalties)
 http://siddhashila-eevva.co.in/* https://siddhashila-eevva.co.in/:splat 301!
 http://www.siddhashila-eevva.co.in/* https://siddhashila-eevva.co.in/:splat 301!
 https://www.siddhashila-eevva.co.in/* https://siddhashila-eevva.co.in/:splat 301!
+
+# Pages.dev Canonical Redirect to Official Custom Domain for Googlebot
+https://siddhashilaeevva.pages.dev/sitemap.xml https://siddhashila-eevva.co.in/sitemap.xml 301!
+https://siddhashilaeevva.pages.dev/robots.txt https://siddhashila-eevva.co.in/robots.txt 301!

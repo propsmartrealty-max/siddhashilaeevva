@@ -1,22 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+                            http://www.google.com/schemas/sitemap-image/1.1 
+                            http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
   <url>
     <loc>https://siddhashila-eevva.co.in/</loc>
     <lastmod>2026-08-29</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    
+    <!-- Primary Project Render Images for Google Image Search Ranking -->
     <image:image>
       <image:loc>https://siddhashilaeevva.com/wp-content/uploads/2026/08/Banner-1.webp</image:loc>
-      <image:title>Siddhashila EEVVA Punawale Exterior View</image:title>
+      <image:title>Siddhashila EEVVA Punawale Exterior Luxury Towers Render</image:title>
+      <image:caption>Siddhashila EEVVA 2 &amp; 3 BHK luxury residences on 30m DP road Punawale Pune</image:caption>
+      <image:geo_location>Punawale, Pune, India</image:geo_location>
     </image:image>
+    
     <image:image>
       <image:loc>https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eye_Level_Cam_012.webp</image:loc>
-      <image:title>Siddhashila EEVVA Eye Level Architecture</image:title>
+      <image:title>Siddhashila EEVVA Eye Level Architectural View</image:title>
+      <image:caption>Rhombus geometry towers inspired by Sri Yantra at EEVVA Punawale</image:caption>
+      <image:geo_location>Punawale, Pune, India</image:geo_location>
     </image:image>
+    
     <image:image>
       <image:loc>https://siddhashilaeevva.com/wp-content/uploads/2026/03/Semi-Ariel-NIght-Cam4.webp</image:loc>
-      <image:title>Siddhashila EEVVA Master Layout View</image:title>
+      <image:title>Siddhashila EEVVA Master Layout and Podium Amenities</image:title>
+      <image:caption>Semi aerial night view of 3.5-acre development with 60+ amenities</image:caption>
+      <image:geo_location>Punawale, Pune, India</image:geo_location>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://siddhashila.com/assets/img/residential/eevva/3BHKPremia.jpg</image:loc>
+      <image:title>Siddhashila EEVVA 3 BHK Premia Living Room Interior</image:title>
+      <image:caption>Premium 3 BHK Premia residence 969 to 973 sq ft carpet area</image:caption>
+      <image:geo_location>Punawale, Pune, India</image:geo_location>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://siddhashila.com/assets/img/residential/eevva/3BHKLuxuria.jpg</image:loc>
+      <image:title>Siddhashila EEVVA 3 BHK Luxuria Master Bedroom</image:title>
+      <image:caption>Luxury 3 BHK Luxuria 1102 sq ft carpet area Punawale</image:caption>
+      <image:geo_location>Punawale, Pune, India</image:geo_location>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eevva-logo.webp</image:loc>
+      <image:title>Siddhashila EEVVA Official Project Brand Logo</image:title>
+      <image:caption>EEVVA by Siddhashila Group official brand logo</image:caption>
     </image:image>
   </url>
 </urlset>

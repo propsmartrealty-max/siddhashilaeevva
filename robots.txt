@@ -1,11 +1,43 @@
-User-agent: *
+# ==============================================================================
+# OFFICIAL ROBOTS.TXT FOR SIDDHASHILA EEVVA PUNAWALE
+# Domain: https://siddhashila-eevva.co.in
+# ==============================================================================
+
+# Priority 1: Googlebot & Official Search Engine Crawlers (Unrestricted Fast Crawl)
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Mobile
+User-agent: Googlebot-News
+User-agent: Googlebot-Video
+User-agent: Mediapartners-Google
+User-agent: AdsBot-Google
+User-agent: AdsBot-Google-Mobile
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
 Allow: /
 
-# Block spam / bad scraper bots
+# Priority 2: General Crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /functions/
+
+# Priority 3: Scraper & Backlink Extraction Bots (Throttled Rate Limits)
 User-agent: AhrefsBot
 Crawl-delay: 10
 
 User-agent: SemrushBot
 Crawl-delay: 10
 
+User-agent: DotBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# Sitemap Index Declaration for Search Console
 Sitemap: https://siddhashila-eevva.co.in/sitemap.xml

@@ -1,4 +1,11 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://siddhashilaeevva.pages.dev/sitemap.xml
+# Block spam / bad scraper bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+Sitemap: https://siddhashila-eevva.co.in/sitemap.xml

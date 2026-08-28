@@ -1797,11 +1797,29 @@ window.addEventListener('scroll',()=>btt.classList.toggle('show',window.scrollY>
 btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
 
 /* ═══ FORM ═══ */
-document.getElementById('enquiryForm').addEventListener('submit',e=>{e.preventDefault();
+document.getElementById('enquiryForm').addEventListener('submit',e=>{
+  e.preventDefault();
   const b=e.target.querySelector('.form-submit');b.textContent='Submitting...';b.disabled=true;
-  setTimeout(()=>{b.textContent='✓ Enquiry Submitted!';b.style.background='#4ade80';
-    setTimeout(()=>{b.textContent='Submit Enquiry →';b.style.background='';b.disabled=false;
-      e.target.reset();},2500);},1500);});
+  const fData = new FormData(e.target);
+  fetch('/api/lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: fData.get('name'),
+      email: fData.get('email'),
+      phone: fData.get('phone'),
+      configuration: fData.get('configuration'),
+      source: 'On-Page Contact Section'
+    })
+  }).catch(() => {});
+  setTimeout(()=>{
+    b.textContent='✓ Enquiry Submitted!';b.style.background='#4ade80';
+    setTimeout(()=>{
+      b.textContent='Submit Enquiry →';b.style.background='';b.disabled=false;
+      e.target.reset();
+    },2500);
+  },800);
+});
 
 /* ═══ SMOOTH SCROLL ═══ */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{
@@ -1881,17 +1899,16 @@ if (bForm) {
     btn.textContent = 'Preparing Download...';
     btn.disabled = true;
 
-    // Collect brochure lead
+    // Collect brochure lead and route through Cloudflare Edge Function
     const fData = new FormData(bForm);
-    fetch('https://api.web3forms.com/submit', {
+    fetch('/api/lead', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        access_key: 'b3917823-3b6b-4e0c-99c0-2f3b9c7b912a',
-        subject: 'Brochure Download Request: Siddhashila EEVVA',
         name: fData.get('b_name'),
         phone: fData.get('b_phone'),
         email: fData.get('b_email'),
+        configuration: 'Brochure Download Request',
         source: 'Brochure Modal Form'
       })
     }).catch(() => {});
@@ -1912,7 +1929,7 @@ if (bForm) {
         btn.disabled = false;
         bForm.reset();
       }, 2000);
-    }, 900);
+    }, 700);
   });
 }
 /* ═══ ENQUIRY MODAL LOGIC ═══ */
@@ -1976,25 +1993,19 @@ if (mEnquiryForm) {
     btn.textContent = 'Submitting Enquiry...';
     btn.disabled = true;
 
-    // Collect lead data
+    // Collect lead data and route through Cloudflare Edge Function
     const formData = new FormData(mEnquiryForm);
-    const data = {
-      access_key: 'b3917823-3b6b-4e0c-99c0-2f3b9c7b912a', // Web3Forms standard public endpoint
-      subject: 'New VIP Lead: Siddhashila EEVVA Punawale',
-      from_name: 'EEVVA Website Lead Bot',
-      name: formData.get('m_name'),
-      phone: formData.get('m_phone'),
-      email: formData.get('m_email'),
-      configuration: formData.get('m_configuration'),
-      source: 'Enquiry Modal Popup',
-      page_url: window.location.href
-    };
-
-    fetch('https://api.web3forms.com/submit', {
+    fetch('/api/lead', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    }).catch(() => { /* graceful fallback */ });
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: formData.get('m_name'),
+        phone: formData.get('m_phone'),
+        email: formData.get('m_email'),
+        configuration: formData.get('m_configuration'),
+        source: 'Enquiry Modal Popup'
+      })
+    }).catch(() => {});
 
     setTimeout(() => {
       btn.textContent = '✓ Enquiry Received!';
@@ -2006,7 +2017,7 @@ if (mEnquiryForm) {
         btn.disabled = false;
         mEnquiryForm.reset();
       }, 2000);
-    }, 900);
+    }, 700);
   });
 }
 

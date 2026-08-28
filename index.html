@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EEVVA – Premium 2 &amp; 3 BHK Residences | Siddhashila Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary:#2F4F3E;--secondary:#335340;--accent:#A89F7A;--accent-light:#c4bb96;
+  --white:#FFF;--offwhite:#F9F9FB;--lightgray:#F2F3F5;--dark:#1F1F1F;
+  --glass-bg:rgba(255,255,255,.07);--glass-border:rgba(255,255,255,.15);
+  --glass-blur:20px;--glass-shadow:0 8px 32px rgba(0,0,0,.12);
+  --font-heading:'Cinzel',serif;--font-body:'Jost',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--dark);background:var(--white);overflow-x:hidden;}
+h1,h2,h3,h4,h5{font-family:var(--font-heading);}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+
+/* ═══ PRELOADER ═══ */
+#preloader{position:fixed;inset:0;background:linear-gradient(135deg,var(--primary),#1a3328);z-index:99999;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;
+  transition:opacity .8s,visibility .8s;}
+#preloader.hide{opacity:0;visibility:hidden;pointer-events:none;}
+.loader-ring{width:60px;height:60px;border:3px solid rgba(255,255,255,.1);
+  border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;}
+.loader-text{color:var(--accent);font-family:var(--font-heading);font-size:1.6rem;letter-spacing:10px;animation:pulse 1.5s ease-in-out infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* ═══ WATER FLOW ANIMATIONS ═══ */
+@keyframes waterFlow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes liquidBlob{
+  0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;}
+  25%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%;}
+  50%{border-radius:50% 60% 30% 60%/30% 50% 70% 50%;}
+  75%{border-radius:40% 60% 70% 30%/60% 40% 30% 70%;}
+}
+@keyframes waveMotion{
+  0%{transform:translateX(0) translateZ(0) scaleY(1)}
+  50%{transform:translateX(-25%) translateZ(0) scaleY(.8)}
+  100%{transform:translateX(-50%) translateZ(0) scaleY(1)}
+}
+@keyframes shimmer{
+  0%{background-position:-200% 0}
+  100%{background-position:200% 0}
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@keyframes floatSlow{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(3deg)}}
+@keyframes ripple{0%{transform:scale(0);opacity:.6}100%{transform:scale(4);opacity:0}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes borderFlow{0%{border-image-source:linear-gradient(0deg,var(--accent),transparent,var(--accent))}
+  50%{border-image-source:linear-gradient(180deg,var(--accent),transparent,var(--accent))}
+  100%{border-image-source:linear-gradient(360deg,var(--accent),transparent,var(--accent))}}
+@keyframes glowPulse{0%,100%{box-shadow:0 0 20px rgba(168,159,122,.1)}50%{box-shadow:0 0 40px rgba(168,159,122,.25)}}
+
+/* ═══ WAVE DIVIDERS ═══ */
+.wave-divider{position:absolute;bottom:0;left:0;width:200%;height:80px;pointer-events:none;}
+.wave-divider svg{width:100%;height:100%;animation:waveMotion 8s linear infinite;}
+.wave-top{top:0;bottom:auto;transform:rotate(180deg);}
+
+/* ═══ FLOATING BLOBS ═══ */
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;pointer-events:none;animation:liquidBlob 12s ease-in-out infinite;}
+.blob-1{width:400px;height:400px;background:var(--accent);top:-100px;right:-100px;animation-delay:0s;}
+.blob-2{width:300px;height:300px;background:var(--primary);bottom:-80px;left:-80px;animation-delay:-4s;}
+.blob-3{width:250px;height:250px;background:var(--accent-light);top:50%;left:50%;animation-delay:-8s;}
+
+/* ═══ SMART NAVBAR PILL ═══ */
+.header-wrapper{position:fixed;top:1.2rem;left:0;width:100%;z-index:1000;display:flex;justify-content:center;
+  pointer-events:none;transition:top .4s cubic-bezier(.16,1,.3,1);}
+header{
+  pointer-events:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:1.8rem;
+  padding:.55rem 1rem .55rem 1.6rem;
+  background:rgba(20, 38, 29, 0.65);
+  backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.18);
+  border-radius:60px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.08) inset;
+  transition:all .5s cubic-bezier(.16,1,.3,1);
+  max-width:96vw;
+}
+header.scrolled{
+  background:rgba(255,255,255,0.85);
+  border-color:rgba(168,159,122,0.3);
+  box-shadow:0 14px 45px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.6) inset;
+}
+.header-wrapper.scrolled-down{top:.6rem;}
+
+.logo img{height:38px;transition:all .3s;}
+header.scrolled .logo img{filter:none;}
+nav ul{display:flex;gap:.3rem;list-style:none;align-items:center;}
+nav a{
+  font-weight:500;font-size:.8rem;color:rgba(255,255,255,.85);text-transform:uppercase;
+  letter-spacing:1.5px;padding:.5rem 1rem;border-radius:40px;position:relative;
+  transition:all .35s cubic-bezier(.16,1,.3,1);display:inline-block;
+}
+nav a:hover{
+  color:var(--white);background:rgba(255,255,255,.12);
+}
+header.scrolled nav a{color:#444;}
+header.scrolled nav a:hover{color:var(--dark);background:rgba(47,79,62,.08);}
+
+/* Active Pill Highlight */
+nav a.nav-active{
+  color:var(--white) !important;
+  background:linear-gradient(135deg, var(--accent), #8f9c72);
+  box-shadow:0 4px 15px rgba(168,159,122,0.4);
+  font-weight:600;
+}
+header.scrolled nav a.nav-active{
+  color:var(--white) !important;
+  background:linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow:0 4px 18px rgba(47,79,62,0.35);
+}
+
+.header-cta{
+  background:linear-gradient(135deg,var(--accent),#8f9c72);background-size:200% 200%;
+  animation:gradientShift 3s ease infinite;
+  color:var(--white);padding:.6rem 1.4rem;border-radius:50px;font-weight:600;font-size:.8rem;
+  text-transform:uppercase;letter-spacing:1.2px;
+  transition:transform .3s,box-shadow .3s;box-shadow:0 4px 18px rgba(168,159,122,.35);
+  position:relative;overflow:hidden;white-space:nowrap;
+}
+.header-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+  transform:translateX(-100%);transition:transform .6s;}
+.header-cta:hover::before{transform:translateX(100%);}
+.header-cta:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 8px 25px rgba(168,159,122,.55);}
+
+.hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;padding:.5rem;}
+.hamburger span{width:24px;height:2px;background:var(--white);transition:all .3s;border-radius:2px;}
+header.scrolled .hamburger span{background:var(--dark);}
+
+/* ═══ MOBILE DRAWER ═══ */
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);z-index:998;
+  opacity:0;visibility:hidden;transition:all .4s;}
+.drawer-overlay.show{opacity:1;visibility:visible;}
+.mobile-drawer{position:fixed;top:0;right:0;width:min(380px,85vw);height:100vh;
+  background:rgba(47,79,62,.92);backdrop-filter:blur(30px);
+  transform:translateX(100%);transition:transform .5s cubic-bezier(.4,0,.2,1);
+  z-index:999;padding:5rem 2.5rem 2rem;display:flex;flex-direction:column;gap:1.5rem;}
+.mobile-drawer.open{transform:translateX(0);}
+.drawer-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;
+  color:var(--white);font-size:2rem;cursor:pointer;}
+.mobile-drawer a{color:rgba(255,255,255,.8);font-size:1.2rem;text-transform:uppercase;
+  letter-spacing:3px;padding:.8rem 0;border-bottom:1px solid rgba(255,255,255,.08);
+  transition:all .3s;}
+.mobile-drawer a:hover{padding-left:1rem;color:var(--accent);border-color:var(--accent);}
+
+/* ═══ HERO ═══ */
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;color:var(--white);}
+.hero-bg{position:absolute;inset:0;
+  background:url('https://siddhashilaeevva.com/wp-content/uploads/2026/08/Banner-1.webp') center/cover no-repeat;
+  transform:scale(1.1);}
+.hero-overlay{position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(31,31,31,.75),rgba(47,79,62,.6),rgba(0,0,0,.5));
+  background-size:300% 300%;animation:gradientShift 10s ease infinite;}
+#particles-canvas{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:0 2rem;}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;
+  background:rgba(255,255,255,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.15);border-radius:50px;
+  padding:.5rem 1.5rem;font-size:.85rem;letter-spacing:1.5px;text-transform:uppercase;
+  margin-bottom:2rem;animation:glowPulse 3s ease-in-out infinite;}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pulse 1.5s infinite;}
+.hero-title{font-size:clamp(3.5rem,8vw,7rem);letter-spacing:14px;font-weight:700;
+  background:linear-gradient(135deg,var(--white) 20%,var(--accent) 50%,var(--white) 80%);
+  background-size:200% auto;animation:shimmer 4s linear infinite;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.hero-tagline{font-size:clamp(1.1rem,2.5vw,1.7rem);margin-top:1rem;font-weight:300;letter-spacing:4px;opacity:.9;}
+.hero-location{font-size:1rem;margin-top:.5rem;opacity:.6;letter-spacing:3px;}
+.hero-price{display:inline-flex;align-items:center;gap:.8rem;margin-top:2rem;padding:.8rem 2.2rem;
+  background:rgba(168,159,122,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(168,159,122,.25);border-radius:50px;
+  font-size:1.2rem;font-weight:600;animation:glowPulse 4s ease-in-out infinite;}
+.hero-price .label{font-size:.75rem;opacity:.6;font-weight:400;text-transform:uppercase;letter-spacing:1px;}
+.hero-stats{display:flex;gap:3rem;justify-content:center;margin-top:3rem;flex-wrap:wrap;}
+.hero-stat{text-align:center;position:relative;padding:0 1.5rem;}
+.hero-stat:not(:last-child)::after{content:'';position:absolute;right:0;top:15%;height:70%;width:1px;
+  background:linear-gradient(to bottom,transparent,rgba(255,255,255,.2),transparent);}
+.hero-stat-num{font-size:2.5rem;font-weight:700;font-family:var(--font-heading);color:var(--accent);}
+.hero-stat-label{font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;opacity:.6;margin-top:.3rem;}
+.scroll-arrow{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;animation:float 2.5s ease-in-out infinite;}
+.scroll-arrow svg{width:28px;height:28px;stroke:rgba(255,255,255,.5);stroke-width:2;}
+
+/* ═══ SECTION ANIMATED LINES & BEAMS ═══ */
+.section-lines{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
+.section-lines .v-line{position:absolute;top:0;bottom:0;width:1px;
+  background:linear-gradient(to bottom,transparent,rgba(168,159,122,.12),transparent);}
+.section-lines .v-line-1{left:15%;}
+.section-lines .v-line-2{left:50%;}
+.section-lines .v-line-3{left:85%;}
+.section-lines .v-line::after{content:'';position:absolute;top:-120px;left:0;width:100%;height:120px;
+  background:linear-gradient(to bottom,transparent,var(--accent),#FFF,transparent);
+  animation:lineDrop 6s cubic-bezier(.4,0,.2,1) infinite;}
+.section-lines .v-line-1::after{animation-delay:0s;animation-duration:7s;}
+.section-lines .v-line-2::after{animation-delay:2.5s;animation-duration:8s;}
+.section-lines .v-line-3::after{animation-delay:4s;animation-duration:6.5s;}
+
+@keyframes lineDrop{
+  0%{top:-120px;opacity:0;}
+  20%{opacity:1;}
+  80%{opacity:1;}
+  100%{top:100%;opacity:0;}
+}
+
+/* Horizontal flowing beam line */
+.h-beam-line{position:absolute;left:0;width:100%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(168,159,122,.18),transparent);overflow:hidden;}
+.h-beam-line.top-beam{top:0;}
+.h-beam-line.bottom-beam{bottom:0;}
+.h-beam-line::before{content:'';position:absolute;top:0;left:-200px;width:200px;height:100%;
+  background:linear-gradient(90deg,transparent,var(--accent),#FFF,var(--accent),transparent);
+  animation:beamFlow 5s ease-in-out infinite;}
+.h-beam-line.bottom-beam::before{animation-delay:2.5s;animation-direction:reverse;}
+
+@keyframes beamFlow{
+  0%{left:-200px;opacity:0;}
+  20%{opacity:1;}
+  80%{opacity:1;}
+  100%{left:100%;opacity:0;}
+}
+
+/* ═══ SECTIONS ═══ */
+.section{padding:7rem 2rem;position:relative;overflow:hidden;}
+.section-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2;}
+.section-header{text-align:center;margin-bottom:4rem;}
+.section-label{display:inline-block;font-size:.75rem;text-transform:uppercase;letter-spacing:4px;
+  color:var(--accent);font-weight:600;margin-bottom:1rem;position:relative;}
+.section-label::before,.section-label::after{content:'';position:absolute;top:50%;width:35px;height:1px;
+  background:linear-gradient(90deg,var(--accent),transparent);transition:width .8s ease;}
+.section-label::before{right:calc(100% + 14px);}
+.section-label::after{left:calc(100% + 14px);background:linear-gradient(270deg,var(--accent),transparent);}
+.reveal.active .section-label::before,
+.reveal.active .section-label::after{width:60px;}
+
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.2;margin-bottom:.8rem;}
+.section-subtitle{font-size:1.05rem;color:#777;max-width:600px;margin:0 auto;line-height:1.7;}
+
+/* Animated gold line under headings */
+.gold-line{width:0;height:3px;margin:1rem auto 0;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),#FFF,var(--accent),transparent);
+  background-size:200% 100%;transition:width 1.2s cubic-bezier(.16,1,.3,1);}
+.reveal.active .gold-line{width:100px;animation:shimmerLine 3s linear infinite 1.2s;}
+
+@keyframes shimmerLine{
+  0%{background-position:-200% 0;}
+  100%{background-position:200% 0;}
+}
+
+/* ═══ REVEAL ═══ */
+.reveal{opacity:0;transform:translateY(50px);transition:all .9s cubic-bezier(.16,1,.3,1);}
+.reveal.active{opacity:1;transform:none;}
+.reveal-left{opacity:0;transform:translateX(-60px);transition:all .9s cubic-bezier(.16,1,.3,1);}
+.reveal-left.active{opacity:1;transform:none;}
+.reveal-right{opacity:0;transform:translateX(60px);transition:all .9s cubic-bezier(.16,1,.3,1);}
+.reveal-right.active{opacity:1;transform:none;}
+.reveal-scale{opacity:0;transform:scale(.88);transition:all .9s cubic-bezier(.16,1,.3,1);}
+.reveal-scale.active{opacity:1;transform:scale(1);}
+
+/* ═══ ABOUT ═══ */
+.about-section{background:var(--offwhite);position:relative;}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.about-text h3{font-size:1.8rem;color:var(--primary);margin-bottom:1.5rem;line-height:1.3;}
+.about-text p{font-size:1.05rem;line-height:1.8;color:#555;margin-bottom:1.2rem;}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;}
+.about-feature{display:flex;align-items:center;gap:.8rem;padding:.8rem 1rem;border-radius:14px;
+  background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);
+  transition:all .4s cubic-bezier(.16,1,.3,1);
+  border:1px solid transparent;position:relative;overflow:hidden;}
+.about-feature::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(168,159,122,.05),transparent);opacity:0;transition:opacity .4s;}
+.about-feature:hover::before{opacity:1;}
+.about-feature:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08);border-color:rgba(168,159,122,.2);}
+.about-feature .icon{width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.1rem;flex-shrink:0;}
+.about-feature span{font-size:.85rem;font-weight:500;line-height:1.3;}
+.video-wrapper{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.15);}
+.video-wrapper::before{content:'';position:absolute;inset:-3px;
+  background:linear-gradient(135deg,var(--accent),var(--primary),var(--accent));background-size:200% 200%;
+  animation:gradientShift 4s ease infinite;border-radius:22px;z-index:-1;}
+.video-wrapper iframe{width:100%;aspect-ratio:16/9;border:none;display:block;}
+
+/* ═══ BUTTONS ═══ */
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;
+  background:linear-gradient(135deg,var(--accent),#8f9c72);background-size:200% 200%;
+  animation:gradientShift 3s ease infinite;
+  color:var(--white);padding:.85rem 2.2rem;border-radius:50px;font-weight:600;font-size:.95rem;
+  letter-spacing:.5px;transition:all .3s;box-shadow:0 4px 20px rgba(168,159,122,.3);
+  border:none;cursor:pointer;position:relative;overflow:hidden;}
+.btn-primary::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+  transform:translateX(-100%);transition:transform .5s;}
+.btn-primary:hover::after{transform:translateX(100%);}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(168,159,122,.5);}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;background:transparent;
+  color:var(--accent);padding:.85rem 2.2rem;border:2px solid var(--accent);border-radius:50px;
+  font-weight:600;font-size:.95rem;letter-spacing:.5px;transition:all .3s;cursor:pointer;
+  position:relative;overflow:hidden;}
+.btn-outline::after{content:'';position:absolute;inset:0;background:var(--accent);
+  transform:scaleX(0);transform-origin:right;transition:transform .4s cubic-bezier(.16,1,.3,1);z-index:-1;}
+.btn-outline:hover::after{transform:scaleX(1);transform-origin:left;}
+.btn-outline:hover{color:var(--white);border-color:var(--accent);transform:translateY(-3px);}
+
+/* ═══ GEOMETRY ═══ */
+.geometry-section{
+  background:linear-gradient(135deg,var(--primary) 0%,#1a3328 50%,var(--secondary) 100%);
+  background-size:300% 300%;animation:gradientShift 12s ease infinite;
+  color:var(--white);position:relative;}
+.geo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.geo-card{
+  background:rgba(255,255,255,.06);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.1);border-radius:20px;
+  padding:2.5rem 1.5rem;text-align:center;
+  transition:all .5s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
+.geo-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:conic-gradient(from 0deg,transparent,rgba(168,159,122,.1),transparent,rgba(168,159,122,.05),transparent);
+  animation:spin 8s linear infinite;opacity:0;transition:opacity .5s;}
+.geo-card:hover::before{opacity:1;}
+.geo-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  opacity:0;transition:opacity .4s;}
+.geo-card:hover::after{opacity:1;}
+.geo-card:hover{transform:translateY(-10px);background:rgba(255,255,255,.1);
+  box-shadow:0 20px 50px rgba(0,0,0,.2),0 0 30px rgba(168,159,122,.1);}
+.geo-icon{width:68px;height:68px;margin:0 auto 1.2rem;
+  background:linear-gradient(135deg,rgba(168,159,122,.15),rgba(168,159,122,.05));
+  border-radius:18px;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(168,159,122,.15);
+  transition:all .4s;animation:floatSlow 6s ease-in-out infinite;}
+.geo-card:hover .geo-icon{transform:scale(1.1) rotate(5deg);
+  background:linear-gradient(135deg,rgba(168,159,122,.25),rgba(168,159,122,.1));
+  box-shadow:0 8px 20px rgba(168,159,122,.2);}
+.geo-icon svg{width:28px;height:28px;stroke:var(--accent);fill:none;stroke-width:1.5;}
+.geo-card h4{font-size:1.05rem;font-weight:500;font-family:var(--font-body);line-height:1.4;margin-top:.5rem;}
+
+/* ═══ HIGHLIGHTS ═══ */
+.highlights-section{background:var(--white);position:relative;}
+.highlights-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;align-items:center;}
+.highlights-img{position:relative;border-radius:24px;overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,.1);}
+.highlights-img::before{content:'';position:absolute;inset:-3px;
+  background:linear-gradient(135deg,var(--accent),transparent,var(--primary));background-size:200% 200%;
+  animation:gradientShift 5s ease infinite;border-radius:26px;z-index:-1;}
+.highlights-img img{width:100%;display:block;transition:transform 6s ease;}
+.highlights-img:hover img{transform:scale(1.06);}
+.floating-badge{position:absolute;bottom:1.5rem;left:1.5rem;
+  background:rgba(255,255,255,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  padding:.8rem 1.5rem;border-radius:16px;display:flex;align-items:center;gap:.8rem;
+  box-shadow:0 8px 30px rgba(0,0,0,.1);border:1px solid rgba(255,255,255,.5);
+  animation:floatSlow 5s ease-in-out infinite;}
+.badge-num{font-size:1.6rem;font-weight:700;color:var(--primary);font-family:var(--font-heading);}
+.badge-text{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:#666;line-height:1.3;}
+.stat-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+.stat-card{background:var(--offwhite);border-radius:18px;padding:1.8rem;
+  transition:all .5s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;
+  border:1px solid transparent;}
+.stat-card::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(168,159,122,.06),transparent);
+  opacity:0;transition:opacity .4s;}
+.stat-card:hover::before{opacity:1;}
+.stat-card:hover{transform:translateY(-6px);box-shadow:0 15px 40px rgba(0,0,0,.08);
+  border-color:rgba(168,159,122,.2);}
+.stat-card::after{content:'';position:absolute;top:0;right:0;width:70px;height:70px;
+  background:linear-gradient(135deg,rgba(168,159,122,.08),transparent);border-radius:0 18px 0 70px;}
+.stat-num{font-size:2.2rem;font-weight:700;font-family:var(--font-heading);
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.stat-label{font-size:.8rem;color:#888;margin-top:.5rem;text-transform:uppercase;letter-spacing:1.5px;}
+
+/* ═══ CONFIGURATIONS ═══ */
+.config-section{
+  background:linear-gradient(135deg,var(--secondary),var(--primary),#1a3328);
+  background-size:300% 300%;animation:gradientShift 12s ease infinite;color:var(--white);}
+.config-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.config-card{
+  background:rgba(255,255,255,.06);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.1);border-radius:24px;
+  padding:3rem 2rem;text-align:center;
+  transition:all .5s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;}
+.config-card::before{content:'';position:absolute;inset:8px;border-radius:18px;
+  border:1.5px dashed rgba(168,159,122,.25);pointer-events:none;transition:border-color .4s;}
+.config-card:hover::before{border-color:rgba(168,159,122,.5);}
+.config-card::after{content:'';position:absolute;bottom:-50%;right:-50%;width:200%;height:200%;
+  background:radial-gradient(circle,rgba(168,159,122,.08),transparent 60%);
+  transition:all .6s;}
+.config-card:hover::after{bottom:-30%;right:-30%;}
+.config-card:hover{transform:translateY(-12px);background:rgba(255,255,255,.1);
+  box-shadow:0 25px 60px rgba(0,0,0,.25),0 0 40px rgba(168,159,122,.08);}
+.config-icon{width:85px;height:85px;margin:0 auto 1.5rem;
+  background:linear-gradient(135deg,rgba(168,159,122,.12),rgba(168,159,122,.04));
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:2px solid rgba(168,159,122,.15);
+  transition:all .4s;animation:floatSlow 7s ease-in-out infinite;}
+.config-card:hover .config-icon{border-color:var(--accent);
+  box-shadow:0 0 30px rgba(168,159,122,.2);transform:scale(1.1);}
+.config-icon svg{width:32px;height:32px;stroke:var(--accent);fill:none;stroke-width:1.5;}
+.config-card h3{font-size:1.4rem;margin-bottom:.5rem;}
+.config-area{font-size:.9rem;opacity:.6;margin-bottom:1.5rem;letter-spacing:.5px;}
+.config-btn{
+  background:linear-gradient(135deg,var(--accent),#8f9c72);background-size:200% 200%;
+  animation:gradientShift 3s ease infinite;
+  color:var(--white);border:none;padding:.75rem 2rem;border-radius:50px;font-weight:600;
+  cursor:pointer;transition:all .3s;font-size:.9rem;position:relative;overflow:hidden;}
+.config-btn::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transform:translateX(-100%);transition:transform .5s;}
+.config-btn:hover::after{transform:translateX(100%);}
+.config-btn:hover{transform:scale(1.05);box-shadow:0 8px 25px rgba(168,159,122,.4);}
+
+/* ═══ FLOOR PLANS & MASTER LAYOUT ═══ */
+.plans-section{background:var(--white);position:relative;}
+.plans-tabs{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.plans-tab{padding:.75rem 1.8rem;border-radius:50px;cursor:pointer;font-weight:500;font-size:.85rem;
+  text-transform:uppercase;letter-spacing:1.5px;border:1px solid #ddd;background:var(--offwhite);
+  color:#888;transition:all .4s;position:relative;overflow:hidden;}
+.plans-tab::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,1,.3,1);
+  z-index:-1;border-radius:50px;}
+.plans-tab.active::before{transform:scaleX(1);}
+.plans-tab.active{color:var(--white);border-color:var(--primary);box-shadow:0 4px 20px rgba(47,79,62,.25);}
+.plans-tab:hover:not(.active){border-color:var(--primary);color:var(--primary);}
+.plans-content{display:none;animation:plansFadeIn .6s cubic-bezier(.16,1,.3,1);}
+.plans-content.active{display:block;}
+@keyframes plansFadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.master-layout-wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:3rem;align-items:center;}
+.master-img{position:relative;border-radius:20px;overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.05);}
+.master-img::before{content:'';position:absolute;inset:-3px;
+  background:linear-gradient(135deg,var(--accent),var(--primary),var(--accent));background-size:200% 200%;
+  animation:gradientShift 5s ease infinite;border-radius:22px;z-index:-1;}
+.master-img img{width:100%;display:block;transition:transform 6s ease;}
+.master-img:hover img{transform:scale(1.04);}
+.master-info{display:flex;flex-direction:column;gap:1rem;}
+.master-info-card{background:var(--offwhite);border-radius:16px;padding:1.3rem;
+  transition:all .5s cubic-bezier(.16,1,.3,1);border:1px solid transparent;
+  display:flex;align-items:center;gap:1rem;}
+.master-info-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.06);
+  border-color:rgba(168,159,122,.2);}
+.master-info-card .mi-icon{width:48px;height:48px;border-radius:14px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .4s;}
+.master-info-card:hover .mi-icon{transform:scale(1.1) rotate(5deg);box-shadow:0 6px 16px rgba(47,79,62,.2);}
+.master-info-card .mi-icon svg{width:20px;height:20px;stroke:var(--white);fill:none;stroke-width:1.5;}
+.mi-text h4{font-size:.9rem;font-family:var(--font-body);font-weight:600;color:var(--dark);margin-bottom:.15rem;}
+.mi-text p{font-size:.78rem;color:#888;}
+.floor-plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+.floor-card{background:var(--offwhite);border-radius:20px;overflow:hidden;
+  transition:all .5s cubic-bezier(.16,1,.3,1);border:1px solid transparent;position:relative;}
+.floor-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--primary),var(--accent));background-size:200% 100%;
+  animation:gradientShift 3s ease infinite;opacity:0;transition:opacity .4s;}
+.floor-card:hover::before{opacity:1;}
+.floor-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,.08);border-color:rgba(168,159,122,.2);}
+.floor-card-img{position:relative;overflow:hidden;background:var(--white);padding:1rem;aspect-ratio:4/3;
+  display:flex;align-items:center;justify-content:center;}
+.floor-card-img img{max-height:100%;width:auto;max-width:100%;object-fit:contain;transition:transform .6s cubic-bezier(.16,1,.3,1);}
+.floor-card:hover .floor-card-img img{transform:scale(1.06);}
+.floor-card-img .zoom-icon{position:absolute;top:1rem;right:1rem;width:36px;height:36px;
+  border-radius:50%;background:rgba(47,79,62,.85);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;opacity:0;transition:all .3s;cursor:pointer;}
+.floor-card:hover .zoom-icon{opacity:1;}
+.zoom-icon svg{width:16px;height:16px;stroke:var(--white);fill:none;stroke-width:2;}
+.floor-card-body{padding:1.3rem 1.5rem;text-align:center;}
+.floor-card-body h4{font-size:1.05rem;font-weight:600;color:var(--dark);margin-bottom:.3rem;}
+.floor-area{font-size:.85rem;color:var(--accent);font-weight:600;letter-spacing:.5px;margin-bottom:.8rem;}
+.floor-features{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;}
+.floor-feat{font-size:.72rem;color:#777;background:var(--white);padding:.3rem .7rem;border-radius:20px;
+  display:flex;align-items:center;gap:.3rem;}
+@media(max-width:1024px){.master-layout-wrap{grid-template-columns:1fr;}.floor-plans-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){.floor-plans-grid{grid-template-columns:1fr;}}
+
+/* ═══ AMENITIES ═══ */
+.amenities-section{background:var(--offwhite);position:relative;}
+.amen-tabs{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;}
+.amen-tab{padding:.7rem 1.5rem;border-radius:50px;cursor:pointer;font-weight:500;font-size:.85rem;
+  text-transform:uppercase;letter-spacing:1.5px;border:1px solid #ddd;background:var(--white);
+  color:#888;transition:all .4s;position:relative;overflow:hidden;}
+.amen-tab::before{content:'';position:absolute;inset:0;background:var(--primary);
+  transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.16,1,.3,1);z-index:-1;border-radius:50px;}
+.amen-tab.active::before{transform:scaleX(1);}
+.amen-tab.active{color:var(--white);border-color:var(--primary);box-shadow:0 4px 20px rgba(47,79,62,.3);}
+.amen-tab:hover:not(.active){border-color:var(--primary);color:var(--primary);}
+.amen-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1.2rem;}
+.amen-card{background:var(--white);border-radius:18px;padding:1.5rem 1rem;text-align:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.03);transition:all .5s cubic-bezier(.16,1,.3,1);
+  border:1px solid transparent;cursor:default;position:relative;overflow:hidden;}
+.amen-card::before{content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(47,79,62,.03),transparent);opacity:0;transition:opacity .4s;}
+.amen-card:hover::before{opacity:1;}
+.amen-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,.08);
+  border-color:rgba(168,159,122,.25);}
+.amen-icon{width:58px;height:58px;margin:0 auto .8rem;
+  background:linear-gradient(135deg,rgba(47,79,62,.06),rgba(47,79,62,.02));
+  border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+  transition:all .5s cubic-bezier(.16,1,.3,1);}
+.amen-card:hover .amen-icon{background:linear-gradient(135deg,var(--primary),var(--secondary));
+  transform:scale(1.15) rotate(8deg);border-radius:20px;
+  box-shadow:0 8px 20px rgba(47,79,62,.2);}
+.amen-label{font-size:.85rem;font-weight:500;color:#555;}
+
+/* ═══ GALLERY ═══ */
+.gallery-section{background:var(--white);}
+.gallery-masonry{columns:3;column-gap:1rem;}
+.gallery-item{break-inside:avoid;margin-bottom:1rem;border-radius:16px;overflow:hidden;
+  position:relative;cursor:pointer;transition:all .5s cubic-bezier(.16,1,.3,1);}
+.gallery-item:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.12);}
+.gallery-item img{width:100%;display:block;transition:transform .8s cubic-bezier(.16,1,.3,1);}
+.gallery-item:hover img{transform:scale(1.08);}
+.gallery-overlay{position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(47,79,62,.8) 0%,transparent 60%);
+  opacity:0;transition:opacity .4s;display:flex;align-items:flex-end;padding:1.5rem;}
+.gallery-item:hover .gallery-overlay{opacity:1;}
+.gallery-overlay span{color:var(--white);font-size:.85rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:2px;}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:10000;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transition:all .5s;backdrop-filter:blur(20px);}
+.lightbox.active{opacity:1;visibility:visible;}
+.lightbox img{max-width:90vw;max-height:85vh;border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.5);
+  transform:scale(.9);transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.lightbox.active img{transform:scale(1);}
+.lightbox-close{position:absolute;top:2rem;right:2rem;color:var(--white);font-size:2rem;cursor:pointer;
+  width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;
+  background:rgba(255,255,255,.08);backdrop-filter:blur(10px);transition:all .3s;}
+.lightbox-close:hover{background:rgba(255,255,255,.15);transform:rotate(90deg);}
+
+/* ═══ LOCATION ═══ */
+.location-section{background:var(--offwhite);position:relative;}
+.location-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3rem;}
+.loc-card{background:var(--white);border-radius:20px;padding:2rem 1.5rem;text-align:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.03);transition:all .5s cubic-bezier(.16,1,.3,1);
+  border:1px solid transparent;position:relative;overflow:hidden;}
+.loc-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--primary),var(--accent));background-size:200% 100%;
+  animation:gradientShift 3s ease infinite;opacity:0;transition:opacity .4s;}
+.loc-card:hover::before{opacity:1;}
+.loc-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,.08);
+  border-color:rgba(168,159,122,.2);}
+.loc-icon{width:60px;height:60px;margin:0 auto 1rem;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .5s cubic-bezier(.16,1,.3,1);}
+.loc-card:hover .loc-icon{transform:scale(1.1) rotate(5deg);border-radius:20px;
+  box-shadow:0 8px 20px rgba(47,79,62,.2);}
+.loc-icon svg{width:24px;height:24px;stroke:var(--white);fill:none;stroke-width:1.5;}
+.loc-card h4{font-size:.95rem;font-weight:600;font-family:var(--font-body);color:var(--dark);margin-bottom:.3rem;}
+.loc-card p{font-size:.8rem;color:#999;}
+.map-wrapper{border-radius:24px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.08);
+  border:1px solid rgba(0,0,0,.05);}
+.map-wrapper iframe{width:100%;height:400px;border:none;display:block;}
+
+/* ═══ CONTACT ═══ */
+.contact-section{
+  background:linear-gradient(135deg,var(--primary),#1a3328,var(--secondary));
+  background-size:300% 300%;animation:gradientShift 12s ease infinite;
+  color:var(--white);position:relative;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;position:relative;z-index:1;}
+.contact-info h3{font-size:1.8rem;margin-bottom:1rem;}
+.contact-info p{font-size:1.05rem;opacity:.75;line-height:1.7;margin-bottom:2rem;}
+.contact-detail{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;
+  padding:1rem;border-radius:14px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);transition:all .3s;}
+.contact-detail:hover{background:rgba(255,255,255,.08);border-color:rgba(168,159,122,.2);
+  transform:translateX(5px);}
+.cd-icon{width:48px;height:48px;border-radius:14px;
+  background:rgba(168,159,122,.12);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.cd-icon svg{width:20px;height:20px;stroke:var(--accent);fill:none;stroke-width:1.5;}
+.cd-text{font-size:.95rem;}
+.cd-label{font-size:.7rem;opacity:.5;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:.2rem;}
+.contact-form{
+  background:rgba(255,255,255,.06);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+  border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:2.5rem;
+  box-shadow:0 20px 60px rgba(0,0,0,.1);}
+.form-group{margin-bottom:1.2rem;position:relative;}
+.form-group input,.form-group select{width:100%;padding:1rem 1.2rem;
+  border:1px solid rgba(255,255,255,.1);border-radius:14px;
+  background:rgba(255,255,255,.04);color:var(--white);font-size:.95rem;
+  font-family:var(--font-body);transition:all .4s;outline:none;}
+.form-group input::placeholder{color:rgba(255,255,255,.35);}
+.form-group select{appearance:none;cursor:pointer;}
+.form-group select option{background:var(--primary);color:var(--white);}
+.form-group input:focus,.form-group select:focus{border-color:var(--accent);
+  background:rgba(255,255,255,.08);box-shadow:0 0 0 4px rgba(168,159,122,.1);}
+.form-check{display:flex;align-items:flex-start;gap:.8rem;margin-bottom:1.5rem;font-size:.85rem;opacity:.7;}
+.form-check input[type=checkbox]{accent-color:var(--accent);margin-top:3px;}
+.form-submit{width:100%;
+  background:linear-gradient(135deg,var(--accent),#8f9c72);background-size:200% 200%;
+  animation:gradientShift 3s ease infinite;
+  color:var(--white);padding:1rem;border:none;border-radius:14px;font-weight:600;
+  font-size:1rem;cursor:pointer;transition:all .3s;letter-spacing:1px;
+  position:relative;overflow:hidden;}
+.form-submit::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transform:translateX(-100%);transition:transform .5s;}
+.form-submit:hover::after{transform:translateX(100%);}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(168,159,122,.4);}
+
+/* ═══ FOOTER ═══ */
+footer{background:var(--dark);color:rgba(255,255,255,.5);padding:3.5rem 2rem 2rem;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;
+  padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:2rem;}
+.footer-brand img{height:40px;margin-bottom:1rem;filter:brightness(0) invert(1) opacity(.6);}
+.footer-brand p{font-size:.9rem;line-height:1.6;}
+.footer-col h5{color:rgba(255,255,255,.8);font-size:.8rem;text-transform:uppercase;
+  letter-spacing:2px;margin-bottom:1rem;font-family:var(--font-body);font-weight:600;}
+.footer-col a{display:block;font-size:.9rem;margin-bottom:.6rem;transition:all .3s;}
+.footer-col a:hover{color:var(--accent);padding-left:.5rem;}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;
+  gap:1rem;font-size:.75rem;}
+.footer-social{display:flex;gap:.8rem;}
+.footer-social a{width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;
+  transition:all .4s;border:1px solid rgba(255,255,255,.08);}
+.footer-social a:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-3px);}
+.footer-social svg{width:15px;height:15px;fill:rgba(255,255,255,.7);}
+
+/* ═══ BACK TO TOP ═══ */
+.back-to-top{position:fixed;bottom:2rem;right:2rem;z-index:900;width:50px;height:50px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),#8f9c72);
+  color:var(--white);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;visibility:hidden;transition:all .4s;
+  box-shadow:0 4px 20px rgba(168,159,122,.3);
+  animation:floatSlow 4s ease-in-out infinite;}
+.back-to-top.show{opacity:1;visibility:visible;}
+.back-to-top:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(168,159,122,.5);}
+.back-to-top svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.5;}
+
+/* ═══ RIPPLE EFFECT ═══ */
+.ripple-container{position:relative;overflow:hidden;}
+.ripple-effect{position:absolute;border-radius:50%;background:rgba(168,159,122,.2);
+  animation:ripple .6s ease-out forwards;pointer-events:none;}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1024px){
+  .geo-grid{grid-template-columns:repeat(2,1fr);}
+  .config-grid{grid-template-columns:repeat(2,1fr);}
+  .highlights-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .gallery-masonry{columns:2;}
+}
+/* ═══ MOBILE BOTTOM QUICK-BAR ═══ */
+.mobile-bottom-bar{
+  display:none;position:fixed;bottom:0;left:0;width:100%;z-index:999;
+  background:rgba(255,255,255,0.92);backdrop-filter:blur(20px) saturate(180%);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  border-top:1px solid rgba(168,159,122,0.25);
+  box-shadow:0 -6px 25px rgba(0,0,0,0.1);
+  padding:.65rem 1rem env(safe-area-inset-bottom, .65rem);
+  grid-template-columns:1fr 1fr 1.3fr;gap:.6rem;align-items:center;
+}
+.m-bar-btn{
+  display:flex;align-items:center;justify-content:center;gap:.4rem;
+  padding:.7rem .5rem;border-radius:12px;font-size:.78rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.8px;text-align:center;
+  transition:all .2s;text-decoration:none;
+}
+.m-bar-btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+.m-bar-btn.call{background:rgba(47,79,62,0.08);color:var(--primary);}
+.m-bar-btn.whatsapp{background:rgba(37,211,102,0.12);color:#128C7E;}
+.m-bar-btn.enquire{
+  background:linear-gradient(135deg,var(--accent),#8f9c72);color:var(--white);
+  box-shadow:0 4px 14px rgba(168,159,122,0.4);
+}
+
+@media(max-width:768px){
+  /* Navbar Pill for Mobile */
+  .header-wrapper{top:.8rem;padding:0 .8rem;}
+  header{
+    width:100%;max-width:100%;padding:.45rem .8rem .45rem 1.2rem;
+    gap:1rem;border-radius:40px;
+  }
+  .logo img{height:32px;}
+  nav,.header-cta{display:none;}
+  .hamburger{display:flex;}
+  
+  /* Hero on mobile */
+  .hero{min-height:92vh;padding-top:4rem;}
+  .hero-title{letter-spacing:8px;line-height:1.15;}
+  .hero-tagline{letter-spacing:2px;font-size:1.1rem;}
+  .hero-location{font-size:.85rem;letter-spacing:2px;}
+  .hero-price{padding:.6rem 1.4rem;font-size:1rem;}
+  .hero-stats{gap:1rem;margin-top:2rem;}
+  .hero-stat{padding:0 .6rem;}
+  .hero-stat-num{font-size:1.7rem;}
+  .hero-stat-label{font-size:.68rem;letter-spacing:1px;}
+  
+  /* Section Spacing */
+  .section{padding:4.5rem 1.2rem;}
+  .section-header{margin-bottom:2.5rem;}
+  .section-title{font-size:1.85rem;}
+  .section-subtitle{font-size:.92rem;}
+  
+  /* Grids & Stacks */
+  .geo-grid{grid-template-columns:1fr;gap:1rem;}
+  .geo-card{padding:1.8rem 1.2rem;}
+  .highlights-grid{grid-template-columns:1fr;gap:2rem;}
+  .stat-cards{grid-template-columns:1fr 1fr;gap:.8rem;}
+  .stat-card{padding:1.2rem 1rem;}
+  .stat-num{font-size:1.7rem;}
+  .config-grid{grid-template-columns:1fr;gap:1.5rem;}
+  .config-card{padding:2.2rem 1.5rem;}
+  
+  /* Master Layout & Plans */
+  .master-layout-wrap{grid-template-columns:1fr;gap:1.5rem;}
+  .floor-plans-grid{grid-template-columns:1fr;gap:1.5rem;}
+  .plans-tabs{gap:.4rem;margin-bottom:2rem;}
+  .plans-tab{padding:.6rem 1.2rem;font-size:.78rem;}
+  
+  /* Amenities */
+  .amen-tabs{gap:.35rem;margin-bottom:2rem;overflow-x:auto;padding-bottom:.5rem;justify-content:flex-start;scrollbar-width:none;}
+  .amen-tabs::-webkit-scrollbar{display:none;}
+  .amen-tab{padding:.5rem 1rem;font-size:.72rem;flex-shrink:0;}
+  .amen-grid{grid-template-columns:repeat(2,1fr);gap:.8rem;}
+  .amen-card{padding:1.2rem .8rem;}
+  
+  /* Gallery & Location */
+  .gallery-masonry{columns:1;}
+  .location-grid{grid-template-columns:1fr;gap:1rem;}
+  .loc-card{padding:1.5rem 1rem;}
+  
+  /* Contact Form */
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .contact-form{padding:1.8rem 1.2rem;}
+  
+  /* Footer & Quick Actions */
+  .footer-top{grid-template-columns:1fr;gap:1.8rem;}
+  footer{padding:2.5rem 1.2rem 5.5rem;}
+  .floating-dock{display:none;} /* Replaced by sticky mobile bottom bar */
+  .mobile-bottom-bar{display:grid;}
+  .back-to-top{bottom:4.5rem;right:1.2rem;width:42px;height:42px;}
+  
+  /* Modal optimization for mobile keyboards */
+  .modal-box{padding:2.2rem 1.4rem;max-width:92vw;border-radius:22px;}
+  .modal-box h3{font-size:1.35rem;}
+}
+
+/* ═══ SCROLL PROGRESS BAR ═══ */
+#scroll-progress{position:fixed;top:0;left:0;height:3.5px;width:0%;
+  background:linear-gradient(90deg,var(--accent),#FFF,var(--accent-light),var(--primary));
+  background-size:200% 100%;animation:gradientShift 3s ease infinite;
+  z-index:99999;pointer-events:none;box-shadow:0 0 10px rgba(168,159,122,.6);}
+
+/* ═══ FLOATING QUICK ACTION DOCK ═══ */
+.floating-dock{position:fixed;bottom:2rem;left:2rem;z-index:900;display:flex;flex-direction:column;gap:.75rem;}
+.dock-btn{
+  width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(168,159,122,0.3);box-shadow:0 8px 24px rgba(0,0,0,0.12);
+  cursor:pointer;transition:all .4s cubic-bezier(.16,1,.3,1);color:var(--dark);position:relative;
+}
+.dock-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;}
+.dock-btn:hover{transform:translateY(-4px) scale(1.08);background:var(--primary);color:var(--white);border-color:var(--primary);
+  box-shadow:0 12px 30px rgba(47,79,62,0.35);}
+.dock-btn .dock-tooltip{
+  position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%) translateX(-8px);
+  background:var(--dark);color:var(--white);padding:.4rem .8rem;border-radius:8px;font-size:.72rem;
+  font-weight:500;white-space:nowrap;letter-spacing:1px;text-transform:uppercase;
+  opacity:0;visibility:hidden;transition:all .3s cubic-bezier(.16,1,.3,1);pointer-events:none;
+  box-shadow:0 4px 14px rgba(0,0,0,0.25);
+}
+.dock-btn:hover .dock-tooltip{opacity:1;visibility:visible;transform:translateY(-50%) translateX(0);}
+.dock-btn.whatsapp-btn:hover{background:#25D366;border-color:#25D366;box-shadow:0 10px 25px rgba(37,211,102,0.35);}
+
+/* ═══ INTERACTIVE MODAL (Brochure & Visit) ═══ */
+.action-modal{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  z-index:10001;display:flex;align-items:center;justify-content:center;padding:1.5rem;
+  opacity:0;visibility:hidden;transition:all .4s cubic-bezier(.16,1,.3,1);}
+.action-modal.active{opacity:1;visibility:visible;}
+.modal-box{
+  background:rgba(255,255,255,.95);backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px);
+  border:1px solid rgba(168,159,122,.3);border-radius:28px;padding:2.8rem 2.2rem;
+  max-width:480px;width:100%;box-shadow:0 25px 70px rgba(0,0,0,.25);position:relative;
+  transform:scale(.9) translateY(20px);transition:all .4s cubic-bezier(.16,1,.3,1);
+}
+.action-modal.active .modal-box{transform:scale(1) translateY(0);}
+.modal-close{position:absolute;top:1.2rem;right:1.2rem;width:38px;height:38px;border-radius:50%;
+  border:none;background:rgba(0,0,0,.05);display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:1.4rem;color:#666;transition:all .3s;}
+.modal-close:hover{background:var(--primary);color:var(--white);transform:rotate(90deg);}
+.modal-box h3{font-size:1.6rem;color:var(--primary);margin-bottom:.5rem;text-align:center;}
+.modal-box p{font-size:.9rem;color:#666;text-align:center;margin-bottom:1.8rem;line-height:1.5;}
+.modal-form .form-group input,
+.modal-form .form-group select{
+  background:rgba(0,0,0,.03);border:1px solid #ddd;color:var(--dark);padding:.85rem 1.1rem;
+  border-radius:12px;width:100%;font-family:var(--font-body);outline:none;transition:all .3s;
+}
+.modal-form .form-group select option{background:var(--white);color:var(--dark);}
+.modal-form .form-group input:focus,
+.modal-form .form-group select:focus{border-color:var(--accent);background:var(--white);box-shadow:0 0 0 3px rgba(168,159,122,.15);}
+.modal-form .form-submit{border-radius:50px;padding:.9rem;}
+.modal-form .form-check{font-size:.8rem;color:#777;}
+.modal-form .form-check input{accent-color:var(--accent);}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-progress"></div>
+
+<div class="header-wrapper" id="headerWrapper">
+<header id="header">
+  <div class="logo"><a href="#"><img src="https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eevva-logo.webp" alt="EEVVA Logo"></a></div>
+  <nav><ul>
+    <li><a href="#about">About</a></li><li><a href="#highlights">Highlights</a></li>
+    <li><a href="#configurations">Configurations</a></li><li><a href="#plans">Floor Plans</a></li>
+    <li><a href="#amenities">Amenities</a></li><li><a href="#gallery">Gallery</a></li>
+    <li><a href="#location">Location</a></li><li><a href="#contact">Contact</a></li>
+  </ul></nav>
+  <a href="#contact" class="header-cta">Enquire Now</a>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
+</div>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+  <button class="drawer-close" id="drawerClose">&times;</button>
+  <a href="#about">About</a><a href="#highlights">Highlights</a>
+  <a href="#configurations">Configurations</a><a href="#plans">Floor Plans</a>
+  <a href="#amenities">Amenities</a><a href="#gallery">Gallery</a>
+  <a href="#location">Location</a><a href="#contact">Contact</a>
+</div>
+
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <canvas id="particles-canvas"></canvas>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="dot"></span> RERA Registered</div>
+    <h1 class="hero-title">EEVVA</h1>
+    <p class="hero-tagline">Premium 2 &amp; 3 BHK Residences</p>
+    <p class="hero-location">Punawale, Pune</p>
+    <div class="hero-price"><span class="label">Starting</span> ₹ 83 Lacs Onwards*</div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num" data-target="3.5" data-decimal="1">0</div><div class="hero-stat-label">Acres</div></div>
+      <div class="hero-stat"><div class="hero-stat-num" data-target="3">0</div><div class="hero-stat-label">Towers</div></div>
+      <div class="hero-stat"><div class="hero-stat-num" data-target="24">0</div><div class="hero-stat-label">Storeys</div></div>
+      <div class="hero-stat"><div class="hero-stat-num" data-target="60" data-suffix="+">0</div><div class="hero-stat-label">Amenities</div></div>
+    </div>
+  </div>
+  <div class="scroll-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+</section>
+
+<section class="section about-section" id="about">
+  <div class="h-beam-line top-beam"></div>
+  <div class="section-lines">
+    <div class="v-line v-line-1"></div>
+    <div class="v-line v-line-2"></div>
+    <div class="v-line v-line-3"></div>
+  </div>
+  <div class="blob blob-3"></div>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Discover</div>
+      <h2 class="section-title">A Thoughtfully Planned<br>Address in Punawale</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal-left">
+        <h3>A Home Built Around<br>Your Wishes</h3>
+        <p>Located in one of Pune's fastest‑evolving corridors, EEVVA is a mixed‑use development designed to offer a complete, well‑rounded lifestyle. Spread across 3.5 acres on a 30‑mtr wide DP road, it combines residential towers, commercial spaces, and a central landscaped environment.</p>
+        <p>Every home begins with a wish — for light, space, greenery, and calm. At EEVVA, design responds to these wishes, creating homes that bring together openness, comfort, and nature in perfect balance.</p>
+        <div class="about-features">
+          <div class="about-feature"><div class="icon">🏗️</div><span>3.5 Acres<br>Land Parcel</span></div>
+          <div class="about-feature"><div class="icon">🏢</div><span>3 Premium<br>Towers</span></div>
+          <div class="about-feature"><div class="icon">🅿️</div><span>4 Levels<br>Parking</span></div>
+          <div class="about-feature"><div class="icon">🏪</div><span>Commercial<br>Development</span></div>
+        </div>
+        <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="#" class="btn-primary ripple-container">Download Brochure ↓</a>
+          <a href="#contact" class="btn-outline ripple-container">Schedule Visit →</a>
+        </div>
+      </div>
+      <div class="video-wrapper reveal-right">
+        <iframe src="https://www.youtube.com/embed/Ep7RuybhhqA" title="EEVVA" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="h-beam-line bottom-beam"></div>
+</section>
+
+<section class="section geometry-section" id="geometry">
+  <div class="h-beam-line top-beam"></div>
+  <div class="section-lines">
+    <div class="v-line v-line-1"></div>
+    <div class="v-line v-line-2"></div>
+    <div class="v-line v-line-3"></div>
+  </div>
+  <div class="blob blob-1"></div><div class="blob blob-2"></div>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label" style="color:var(--accent-light)">Design Philosophy</div>
+      <h2 class="section-title" style="color:var(--white)">Geometry With Purpose</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,.55)">Inspired by the Sri Yantra — guided by a rhombus geometry that ensures thoughtful, purposeful design</p>
+      <div class="gold-line"></div>
+    </div>
+    <div class="geo-grid">
+      <div class="geo-card reveal"><div class="geo-icon"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21V12h6v9"/></svg></div><h4>Maximum Spacing<br>Between Towers</h4></div>
+      <div class="geo-card reveal"><div class="geo-icon"><svg viewBox="0 0 24 24"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg></div><h4>Better Airflow<br>&amp; Ventilation</h4></div>
+      <div class="geo-card reveal"><div class="geo-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><h4>Enhanced Privacy<br>Minimal Overlooking</h4></div>
+      <div class="geo-card reveal"><div class="geo-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h4>2 Homes<br>Per Wing</h4></div>
+      <div class="geo-card reveal"><div class="geo-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div><h4>Only 1<br>Shared Wall</h4></div>
+      <div class="geo-card reveal"><div class="geo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/></svg></div><h4>Wider Views<br>&amp; Natural Light</h4></div>
+    </div>
+  </div>
+</section>
+
+<section class="section highlights-section" id="highlights">
+  <div class="h-beam-line top-beam"></div>
+  <div class="section-lines">
+    <div class="v-line v-line-1"></div>
+    <div class="v-line v-line-2"></div>
+    <div class="v-line v-line-3"></div>
+  </div>
+  <div class="section-inner">
+    <div class="section-header reveal"><div class="section-label">At A Glance</div><h2 class="section-title">Project Highlights</h2><div class="gold-line"></div></div>
+    <div class="highlights-grid">
+      <div class="highlights-img reveal-left">
+        <img src="https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eye_Level_Cam_012.webp" alt="EEVVA Project" loading="lazy">
+        <div class="floating-badge"><div class="badge-num" data-target="46000">0</div><div class="badge-text">SQ.FT.<br>AMENITIES</div></div>
+      </div>
+      <div class="reveal-right">
+        <div class="stat-cards">
+          <div class="stat-card"><div class="stat-num" data-target="3.5" data-decimal="1">0</div><div class="stat-label">Acres Land Parcel</div></div>
+          <div class="stat-card"><div class="stat-num" data-target="3">0</div><div class="stat-label">Premium Towers</div></div>
+          <div class="stat-card"><div class="stat-num" data-target="4">0</div><div class="stat-label">Levels Parking</div></div>
+          <div class="stat-card"><div class="stat-num" data-target="24">0</div><div class="stat-label">Storey Tower</div></div>
+          <div class="stat-card"><div class="stat-num" data-target="60" data-suffix="+">0</div><div class="stat-label">Premium Amenities</div></div>
+          <div class="stat-card"><div class="stat-num" data-target="9">0</div><div class="stat-label">Storey Commercial</div></div>
+        </div>
+        <div style="margin-top:2rem;text-align:center;"><a href="#contact" class="btn-primary ripple-container">Know More →</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="h-beam-line bottom-beam"></div>
+</section>
+
+<section class="section config-section" id="configurations">
+  <div class="h-beam-line top-beam"></div>
+  <div class="section-lines">
+    <div class="v-line v-line-1"></div>
+    <div class="v-line v-line-2"></div>
+    <div class="v-line v-line-3"></div>
+  </div>
+  <div class="blob blob-1"></div><div class="blob blob-2"></div>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label" style="color:var(--accent-light)">Choose Your Home</div>
+      <h2 class="section-title" style="color:var(--white)">Configurations</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,.5)">Thoughtfully designed layouts for every family</p>
+      <div class="gold-line"></div>
+    </div>
+    <div class="config-grid">
+      <div class="config-card reveal"><div class="config-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg></div><h3>2 BHK Classic</h3><div class="config-area">Carpet Area: 801–806 SQ.FT.</div><button class="config-btn ripple-container">Know Pricing →</button></div>
+      <div class="config-card reveal"><div class="config-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>3 BHK Premia</h3><div class="config-area">Carpet Area: 969–973 SQ.FT.</div><button class="config-btn ripple-container">Know Pricing →</button></div>
+      <div class="config-card reveal"><div class="config-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg></div><h3>3 BHK Luxuria</h3><div class="config-area">Carpet Area: 1102 SQ.FT.</div><button class="config-btn ripple-container">Know Pricing →</button></div>
+    </div>
+  </div>
+  <div class="h-beam-line bottom-beam"></div>
+</section>
+
+<!-- MASTER LAYOUT & FLOOR PLANS -->
+<section class="section plans-section" id="plans">
+  <div class="h-beam-line top-beam"></div>
+  <div class="section-lines">
+    <div class="v-line v-line-1"></div>
+    <div class="v-line v-line-2"></div>
+    <div class="v-line v-line-3"></div>
+  </div>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label">Blueprints</div>
+      <h2 class="section-title">Master Layout &amp; Floor Plans</h2>
+      <p class="section-subtitle">Explore the thoughtfully designed layouts crafted for comfort, space, and modern living</p>
+      <div class="gold-line"></div>
+    </div>
+    <div class="plans-tabs reveal" id="plansTabs">
+      <div class="plans-tab active" data-plan="master">Master Layout</div>
+      <div class="plans-tab" data-plan="floor">Floor Plans</div>
+    </div>
+    <!-- MASTER LAYOUT TAB -->
+    <div class="plans-content active" id="planMaster">
+      <div class="master-layout-wrap">
+        <div class="master-img reveal-left" data-src="https://siddhashilaeevva.com/wp-content/uploads/2026/03/Semi-Ariel-NIght-Cam4.webp">
+          <img src="https://siddhashilaeevva.com/wp-content/uploads/2026/03/Semi-Ariel-NIght-Cam4.webp" alt="EEVVA Master Layout — Semi Aerial Night View" loading="lazy">
+        </div>
+        <div class="master-info reveal-right">
+          <div class="master-info-card">
+            <div class="mi-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <div class="mi-text"><h4>3.5 Acres Land Parcel</h4><p>Expansive development with open green spaces</p></div>
+          </div>
+          <div class="master-info-card">
+            <div class="mi-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="mi-text"><h4>3 Residential Towers</h4><p>24 storey towers with rhombus geometry</p></div>
+          </div>
+          <div class="master-info-card">
+            <div class="mi-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/></svg></div>
+            <div class="mi-text"><h4>Rhombus Geometry Design</h4><p>Inspired by Sri Yantra for max spacing &amp; light</p></div>
+          </div>
+          <div class="master-info-card">
+            <div class="mi-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+            <div class="mi-text"><h4>Central Landscaped Podium</h4><p>46,000 sq.ft. of amenity space at podium level</p></div>
+          </div>
+          <div class="master-info-card">
+            <div class="mi-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 5 20 16 16 13 16 8"/></svg></div>
+            <div class="mi-text"><h4>9 Storey Commercial Block</h4><p>Boutique commercial development included</p></div>
+          </div>
+          <div class="master-info-card">
+            <div class="mi-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="mi-text"><h4>30m DP Road Frontage</h4><p>Premium connectivity &amp; visibility</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FLOOR PLANS TAB -->
+    <div class="plans-content" id="planFloor">
+      <div class="floor-plans-grid">
+        <div class="floor-card reveal">
+          <div class="floor-card-img">
+            <img src="https://siddhashilaeevva.com/wp-content/uploads/2026/03/1.webp" alt="2 BHK Classic Floor Plan" loading="lazy">
+            <div class="zoom-icon" data-src="https://siddhashilaeevva.com/wp-content/uploads/2026/03/1.webp"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="floor-card-body">
+            <h4>2 BHK Classic</h4>
+            <div class="floor-area">Carpet Area: 801 – 806 SQ.FT.</div>
+            <div class="floor-features">
+              <span class="floor-feat">🛏️ 2 Bedrooms</span>
+              <span class="floor-feat">🚿 2 Bathrooms</span>
+              <span class="floor-feat">🌿 Balcony</span>
+            </div>
+            <a href="#contact" class="btn-primary ripple-container" style="font-size:.8rem;padding:.6rem 1.5rem;">Request Floor Plan →</a>
+          </div>
+        </div>
+        <div class="floor-card reveal">
+          <div class="floor-card-img">
+            <img src="https://siddhashila.com/assets/img/residential/eevva/3BHKPremia.jpg" alt="3 BHK Premia Floor Plan" loading="lazy">
+            <div class="zoom-icon" data-src="https://siddhashila.com/assets/img/residential/eevva/3BHKPremia.jpg"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="floor-card-body">
+            <h4>3 BHK Premia</h4>
+            <div class="floor-area">Carpet Area: 969 – 973 SQ.FT.</div>
+            <div class="floor-features">
+              <span class="floor-feat">🛏️ 3 Bedrooms</span>
+              <span class="floor-feat">🚿 3 Bathrooms</span>
+              <span class="floor-feat">🌿 2 Balconies</span>
+            </div>
+            <a href="#contact" class="btn-primary ripple-container" style="font-size:.8rem;padding:.6rem 1.5rem;">Request Floor Plan →</a>
+          </div>
+        </div>
+        <div class="floor-card reveal">
+          <div class="floor-card-img">
+            <img src="https://siddhashila.com/assets/img/residential/eevva/3BHKLuxuria.jpg" alt="3 BHK Luxuria Floor Plan" loading="lazy">
+            <div class="zoom-icon" data-src="https://siddhashila.com/assets/img/residential/eevva/3BHKLuxuria.jpg"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+          </div>
+          <div class="floor-card-body">
+            <h4>3 BHK Luxuria</h4>
+            <div class="floor-area">Carpet Area: 1102 SQ.FT.</div>
+            <div class="floor-features">
+              <span class="floor-feat">🛏️ 3 Bedrooms</span>
+              <span class="floor-feat">🚿 3 Bathrooms</span>
+              <span class="floor-feat">🌿 3 Balconies</span>
+              <span class="floor-feat">🍳 Dry Kitchen</span>
+            </div>
+            <a href="#contact" class="btn-primary ripple-container" style="font-size:.8rem;padding:.6rem 1.5rem;">Request Floor Plan →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="h-beam-line bottom-beam"></div>
+</section>
+
+<section class="section amenities-section" id="amenities">
+  <div class="h-beam-line top-beam"></div>
+  <div class="section-lines">
+    <div class="v-line v-line-1"></div>
+    <div class="v-line v-line-2"></div>
+    <div class="v-line v-line-3"></div>
+  </div>
+  <div class="section-inner">
+    <div class="section-header reveal"><div class="section-label">Lifestyle</div><h2 class="section-title">60+ Premium Amenities</h2><p class="section-subtitle">Curated for Modern Living</p><div class="gold-line"></div></div>
+    <div class="amen-tabs reveal" id="amenTabs">
+      <div class="amen-tab active" data-cat="fitness">Fitness &amp; Sports</div>
+      <div class="amen-tab" data-cat="recreation">Recreation</div>
+      <div class="amen-tab" data-cat="family">Family &amp; Kids</div>
+      <div class="amen-tab" data-cat="wellness">Wellness</div>
+      <div class="amen-tab" data-cat="convenience">Convenience</div>
+    </div>
+    <div class="amen-grid" id="amenGrid"></div>
+  </div>
+  <div class="h-beam-line bottom-beam"></div>
+</section>
+
+<section class="section gallery-section" id="gallery">
+  <div class="h-beam-line top-beam"></div>
+  <div class="section-lines">
+    <div class="v-line v-line-1"></div>
+    <div class="v-line v-line-2"></div>
+    <div class="v-line v-line-3"></div>
+  </div>
+  <div class="section-inner">
+    <div class="section-header reveal"><div class="section-label">Visuals</div><h2 class="section-title">Gallery</h2><p class="section-subtitle">A glimpse into luxury living</p><div class="gold-line"></div></div>
+    <div class="gallery-masonry reveal">
+      <div class="gallery-item" data-src="https://siddhashilaeevva.com/wp-content/uploads/2026/08/Banner-1.webp"><img src="https://siddhashilaeevva.com/wp-content/uploads/2026/08/Banner-1.webp" alt="Exterior" loading="lazy"><div class="gallery-overlay"><span>Exterior View</span></div></div>
+      <div class="gallery-item" data-src="https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eye_Level_Cam_012.webp"><img src="https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eye_Level_Cam_012.webp" alt="Eye Level" loading="lazy"><div class="gallery-overlay"><span>Eye Level View</span></div></div>
+      <div class="gallery-item" data-src="https://siddhashilaeevva.com/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-31-at-10.57.00.jpeg"><img src="https://siddhashilaeevva.com/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-31-at-10.57.00.jpeg" alt="Update" loading="lazy"><div class="gallery-overlay"><span>Construction Update</span></div></div>
+      <div class="gallery-item" data-src="https://siddhashila.com/assets/img/residential/eevva/3BHKPremia.jpg"><img src="https://siddhashila.com/assets/img/residential/eevva/3BHKPremia.jpg" alt="3BHK Premia" loading="lazy"><div class="gallery-overlay"><span>3 BHK Premia</span></div></div>
+      <div class="gallery-item" data-src="https://siddhashila.com/assets/img/residential/eevva/3BHKLuxuria.jpg"><img src="https://siddhashila.com/assets/img/residential/eevva/3BHKLuxuria.jpg" alt="3BHK Luxuria" loading="lazy"><div class="gallery-overlay"><span>3 BHK Luxuria</span></div></div>
+      <div class="gallery-item" data-src="https://siddhashila.com/assets/img/residential/eevva/Eevva-banner34.webp"><img src="https://siddhashila.com/assets/img/residential/eevva/Eevva-banner34.webp" alt="Panorama" loading="lazy"><div class="gallery-overlay"><span>EEVVA Panorama</span></div></div>
+    </div>
+  </div>
+  <div class="h-beam-line bottom-beam"></div>
+</section>
+
+<div class="lightbox" id="lightbox"><div class="lightbox-close" id="lightboxClose">&times;</div><img id="lightboxImg" src="" alt=""></div>
+
+<section class="section location-section" id="location">
+  <div class="h-beam-line top-beam"></div>
+  <div class="section-lines">
+    <div class="v-line v-line-1"></div>
+    <div class="v-line v-line-2"></div>
+    <div class="v-line v-line-3"></div>
+  </div>
+  <div class="section-inner">
+    <div class="section-header reveal"><div class="section-label">Connectivity</div><h2 class="section-title">Prime Location</h2><p class="section-subtitle">Punawale, Pune — West Pune's Fastest Growing Corridor</p><div class="gold-line"></div></div>
+    <div class="location-grid">
+      <div class="loc-card reveal"><div class="loc-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h4>30-mtr Wide DP Road</h4><p>Seamless connectivity</p></div>
+      <div class="loc-card reveal"><div class="loc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h4>Hinjewadi IT Hub</h4><p>Minutes away</p></div>
+      <div class="loc-card reveal"><div class="loc-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h4>Schools &amp; Hospitals</h4><p>Close proximity</p></div>
+      <div class="loc-card reveal"><div class="loc-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div><h4>Shopping &amp; Entertainment</h4><p>Lifestyle at doorstep</p></div>
+      <div class="loc-card reveal"><div class="loc-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 5 20 16 16 13 16 8"/></svg></div><h4>Metro Connectivity</h4><p>Upcoming metro lines</p></div>
+      <div class="loc-card reveal"><div class="loc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><h4>Expressway Access</h4><p>Mumbai–Pune Expressway</p></div>
+    </div>
+    <div class="map-wrapper reveal-scale">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15127.37!2d73.7385!3d18.6266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b900bfcef8f3%3A0x4c2a78bea7932a6!2sPunawale%2C%20Pimpri-Chinchwad%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+  <div class="h-beam-line bottom-beam"></div>
+</section>
+
+<section class="section contact-section" id="contact">
+  <div class="h-beam-line top-beam"></div>
+  <div class="section-lines">
+    <div class="v-line v-line-1"></div>
+    <div class="v-line v-line-2"></div>
+    <div class="v-line v-line-3"></div>
+  </div>
+  <div class="blob blob-1"></div><div class="blob blob-2"></div>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-label" style="color:var(--accent-light)">Get In Touch</div>
+      <h2 class="section-title" style="color:var(--white)">Schedule a Site Visit</h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <h3>Let's Find Your<br>Dream Home</h3>
+        <p>Book your exclusive site visit today and experience the EEVVA lifestyle firsthand.</p>
+        <div class="contact-detail"><div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.61.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c1.2.34 2 .57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="cd-label">Phone</div><div class="cd-text">+91 12345 67890</div></div></div>
+        <div class="contact-detail"><div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cd-label">Email</div><div class="cd-text">info@siddhashila.com</div></div></div>
+        <div class="contact-detail"><div class="cd-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="cd-label">Address</div><div class="cd-text">Punawale, Pune, Maharashtra</div></div></div>
+      </div>
+      <div class="contact-form reveal-right">
+        <form id="enquiryForm">
+          <div class="form-group"><input type="text" name="name" placeholder="Full Name *" required></div>
+          <div class="form-group"><input type="email" name="email" placeholder="Email Address *" required></div>
+          <div class="form-group"><input type="tel" name="phone" placeholder="Phone * (10 digits)" pattern="[0-9]{10}" required></div>
+          <div class="form-group"><select name="configuration" required><option value="" disabled selected>Select Configuration *</option><option>2 BHK Classic — 801–806 Sq.Ft.</option><option>3 BHK Premia — 969–973 Sq.Ft.</option><option>3 BHK Luxuria — 1102 Sq.Ft.</option></select></div>
+          <div class="form-check"><input type="checkbox" name="consent" required><span>I agree to receive communication related to this project.</span></div>
+          <button type="submit" class="form-submit ripple-container">Submit Enquiry →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand"><img src="https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eevva-logo.webp" alt="EEVVA"><p>EEVVA by Siddhashila Group — Premium 2 &amp; 3 BHK Residences in Punawale, Pune.</p></div>
+      <div class="footer-col"><h5>Quick Links</h5><a href="#about">About</a><a href="#highlights">Highlights</a><a href="#amenities">Amenities</a><a href="#configurations">Configurations</a></div>
+      <div class="footer-col"><h5>Explore</h5><a href="#gallery">Gallery</a><a href="#location">Location</a><a href="#contact">Contact Us</a><a href="#">Privacy Policy</a></div>
+      <div class="footer-col"><h5>Contact</h5><a href="tel:+911234567890">+91 12345 67890</a><a href="mailto:info@siddhashila.com">info@siddhashila.com</a><a href="#">Punawale, Pune</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Siddhashila Group. All Rights Reserved. *T&amp;C Apply.</div>
+      <div class="footer-social">
+        <a href="#"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="#"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        <a href="#"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING QUICK ACTION DOCK -->
+<div class="floating-dock">
+  <a href="tel:+911234567890" class="dock-btn" aria-label="Call Sales Team">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.61.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c1.2.34 2 .57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span class="dock-tooltip">Direct Call</span>
+  </a>
+  <a href="https://wa.me/911234567890?text=Hi%2C%20I%20am%20interested%20in%20Siddhashila%20EEVVA%20Punawale" target="_blank" rel="noopener" class="dock-btn whatsapp-btn" aria-label="WhatsApp Chat">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <span class="dock-tooltip">WhatsApp</span>
+  </a>
+  <button class="dock-btn" id="openBrochureModal" aria-label="Download Brochure">
+    <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    <span class="dock-tooltip">Brochure PDF</span>
+  </button>
+</div>
+
+<!-- BROCHURE MODAL -->
+<div class="action-modal" id="brochureModal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeBrochureModal">&times;</button>
+    <h3>Download E-Brochure</h3>
+    <p>Please enter your details to receive the official Siddhashila EEVVA brochure directly.</p>
+    <form class="modal-form" id="brochureForm">
+      <div class="form-group"><input type="text" name="b_name" placeholder="Your Name *" required></div>
+      <div class="form-group"><input type="tel" name="b_phone" placeholder="Phone (10 digits) *" pattern="[0-9]{10}" required></div>
+      <div class="form-group"><input type="email" name="b_email" placeholder="Email Address *" required></div>
+      <button type="submit" class="form-submit btn-primary" style="width:100%;">Instant Download &rarr;</button>
+    </form>
+  </div>
+</div>
+
+<!-- ENQUIRY MODAL -->
+<div class="action-modal" id="enquiryModal">
+  <div class="modal-box">
+    <button class="modal-close" id="closeEnquiryModal">&times;</button>
+    <h3>Express Your Interest</h3>
+    <p>Get exclusive launch offers, pricing breakdowns, and book a VIP site visit.</p>
+    <form class="modal-form" id="modalEnquiryForm">
+      <div class="form-group"><input type="text" name="m_name" placeholder="Your Full Name *" required></div>
+      <div class="form-group"><input type="tel" name="m_phone" placeholder="Phone Number (10 digits) *" pattern="[0-9]{10}" required></div>
+      <div class="form-group"><input type="email" name="m_email" placeholder="Email Address *" required></div>
+      <div class="form-group">
+        <select name="m_configuration" required>
+          <option value="" disabled selected>Preferred Configuration *</option>
+          <option>2 BHK Classic — 801–806 Sq.Ft.</option>
+          <option>3 BHK Premia — 969–973 Sq.Ft.</option>
+          <option>3 BHK Luxuria — 1102 Sq.Ft.</option>
+        </select>
+      </div>
+      <div class="form-check" style="margin-bottom:1.2rem;">
+        <label style="display:flex;align-items:flex-start;gap:.6rem;cursor:pointer;">
+          <input type="checkbox" name="m_consent" required style="margin-top:2px;">
+          <span>I agree to receive project updates &amp; exclusive pricing alerts.</span>
+        </label>
+      </div>
+      <button type="submit" class="form-submit btn-primary" style="width:100%;">Submit Enquiry &rarr;</button>
+    </form>
+  </div>
+</div>
+
+<!-- MOBILE BOTTOM QUICK-BAR (Fixed for handheld users) -->
+<div class="mobile-bottom-bar">
+  <a href="tel:+911234567890" class="m-bar-btn call">
+    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.81.36 1.61.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c1.2.34 2 .57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Call</span>
+  </a>
+  <a href="https://wa.me/911234567890?text=Hi%2C%20I%20am%20interested%20in%20Siddhashila%20EEVVA%20Punawale" target="_blank" rel="noopener" class="m-bar-btn whatsapp">
+    <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <button class="m-bar-btn enquire" id="mEnquireBtn">
+    <span>Enquire Now</span>
+  </button>
+</div>
+
+<div class="back-to-top" id="backToTop"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></div>
+
+<script>
+/* ═══ PRELOADER ═══ */
+window.addEventListener('load',()=>{
+  const pl = document.getElementById('preloader');
+  if(pl) setTimeout(()=>pl.classList.add('hide'),800);
+});
+
+/* ═══ PARTICLES ═══ */
+(function(){
+  const c=document.getElementById('particles-canvas');if(!c)return;
+  const ctx=c.getContext('2d');let ps=[];const N=70;
+  function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}resize();
+  window.addEventListener('resize',resize);
+  class P{constructor(){this.r();}
+    r(){this.x=Math.random()*c.width;this.y=Math.random()*c.height;
+      this.s=Math.random()*2+.4;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;
+      this.o=Math.random()*.4+.1;}
+    u(){this.x+=this.vx;this.y+=this.vy;
+      if(this.x<0||this.x>c.width||this.y<0||this.y>c.height)this.r();}
+    d(){ctx.beginPath();ctx.arc(this.x,this.y,this.s,0,Math.PI*2);
+      ctx.fillStyle=`rgba(168,159,122,${this.o})`;ctx.fill();}}
+  for(let i=0;i<N;i++)ps.push(new P());
+  function draw(){ctx.clearRect(0,0,c.width,c.height);
+    ps.forEach(p=>{p.u();p.d();});
+    for(let a=0;a<ps.length;a++)for(let b=a+1;b<ps.length;b++){
+      const dx=ps[a].x-ps[b].x,dy=ps[a].y-ps[b].y,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<130){ctx.beginPath();ctx.strokeStyle=`rgba(168,159,122,${.06*(1-dist/130)})`;
+        ctx.lineWidth=.5;ctx.moveTo(ps[a].x,ps[a].y);ctx.lineTo(ps[b].x,ps[b].y);ctx.stroke();}}
+    requestAnimationFrame(draw);}draw();
+})();
+
+/* ═══ SMART NAVBAR PILL + SCROLL SPY + PARALLAX ═══ */
+const headerWrapper = document.getElementById('headerWrapper');
+const header = document.getElementById('header');
+const heroBg = document.getElementById('heroBg');
+const navLinks = document.querySelectorAll('header nav a');
+const sections = document.querySelectorAll('section[id]');
+
+function updateSmartNavbar() {
+  const s = window.scrollY;
+  header.classList.toggle('scrolled', s > 60);
+  if (headerWrapper) headerWrapper.classList.toggle('scrolled-down', s > 120);
+  if (heroBg) heroBg.style.transform = `scale(1.1) translateY(${s * 0.3}px)`;
+
+  // Scroll-Spy: determine which section is active
+  let currentSectionId = '';
+  const scrollPos = s + 180;
+  sections.forEach(sec => {
+    const top = sec.offsetTop;
+    const height = sec.offsetHeight;
+    if (scrollPos >= top && scrollPos < top + height) {
+      currentSectionId = sec.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href').replace('#', '');
+    if (href === currentSectionId) {
+      link.classList.add('nav-active');
+    } else {
+      link.classList.remove('nav-active');
+    }
+  });
+}
+
+window.addEventListener('scroll', updateSmartNavbar);
+updateSmartNavbar();
+
+/* ═══ DRAWER ═══ */
+const hb=document.getElementById('hamburger'),dr=document.getElementById('mobileDrawer'),
+  ov=document.getElementById('drawerOverlay'),dc=document.getElementById('drawerClose');
+function oD(){dr.classList.add('open');ov.classList.add('show');document.body.style.overflow='hidden';}
+function cD(){dr.classList.remove('open');ov.classList.remove('show');document.body.style.overflow='';}
+hb.addEventListener('click',oD);dc.addEventListener('click',cD);ov.addEventListener('click',cD);
+dr.querySelectorAll('a').forEach(a=>a.addEventListener('click',cD));
+
+/* ═══ HERO ENTRANCE ═══ */
+[{s:'.hero-badge',d:500},{s:'.hero-title',d:200},{s:'.hero-tagline',d:500},
+ {s:'.hero-location',d:700},{s:'.hero-price',d:900},{s:'.hero-stats',d:1100}].forEach(({s,d})=>{
+  const el=document.querySelector(s);if(!el)return;
+  el.style.opacity='0';el.style.transform='translateY(40px)';
+  setTimeout(()=>{el.style.transition='opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)';
+    el.style.opacity='1';el.style.transform='none';},d);});
+
+/* ═══ SCROLL REVEAL ═══ */
+(function(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const p=entry.target.parentElement;
+      const sibs=p.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');
+      let d=0;sibs.forEach(s=>{if(!s.classList.contains('active')){
+        setTimeout(()=>s.classList.add('active'),d);d+=100;}});
+      if(sibs.length<=1)entry.target.classList.add('active');
+      obs.unobserve(entry.target);}});},{threshold:0.04,rootMargin:'0px 0px -20px 0px'});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>obs.observe(el));
+})();
+
+/* ═══ COUNTERS ═══ */
+function animC(el){const t=parseFloat(el.dataset.target),sf=el.dataset.suffix||'',
+  dc=parseInt(el.dataset.decimal)||0,dur=2200,st=performance.now();
+  function u(now){const p=Math.min((now-st)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=Number(e*t).toFixed(dc)+sf;if(p<1)requestAnimationFrame(u);}
+  requestAnimationFrame(u);}
+const cObs=new IntersectionObserver(es=>{es.forEach(e=>{
+  if(e.isIntersecting){animC(e.target);cObs.unobserve(e.target);}});},{threshold:0.2});
+document.querySelectorAll('[data-target]').forEach(el=>cObs.observe(el));
+
+/* ═══ AMENITIES ═══ */
+const aD={fitness:[{i:'🏋️',l:'Gymnasium'},{i:'🏊',l:'Swimming Pool'},{i:'🏃',l:'Jogging Track'},
+    {i:'🏸',l:'Badminton Court'},{i:'🎾',l:'Tennis Court'},{i:'🏏',l:'Cricket Net'},
+    {i:'🧘',l:'Yoga Deck'},{i:'🤾',l:'Squash Court'}],
+  recreation:[{i:'🏛️',l:'Clubhouse'},{i:'🎮',l:'Indoor Games'},{i:'🎬',l:'Mini Theatre'},
+    {i:'📚',l:'Library'},{i:'🌳',l:'Party Lawn'},{i:'🎭',l:'Amphitheatre'},{i:'🎵',l:'Music Room'}],
+  family:[{i:'🧒',l:'Kids Play Area'},{i:'👶',l:'Toddler Zone'},{i:'🍼',l:'Creche'},
+    {i:'👵',l:'Senior Citizen Area'},{i:'🐾',l:'Pet Park'}],
+  wellness:[{i:'💆',l:'Spa'},{i:'🧖',l:'Sauna'},{i:'🛁',l:'Jacuzzi'},
+    {i:'🧘‍♂️',l:'Meditation Garden'},{i:'🦶',l:'Reflexology Path'}],
+  convenience:[{i:'💼',l:'Co-working Space'},{i:'🏢',l:'Business Centre'},{i:'⚡',l:'EV Charging'},
+    {i:'🛏️',l:'Guest Rooms'},{i:'🤝',l:'Concierge'},{i:'🏠',l:'Smart Home Ready'}]};
+const aG=document.getElementById('amenGrid');
+function rA(cat){aG.innerHTML='';aD[cat].forEach((it,idx)=>{
+  const c=document.createElement('div');c.className='amen-card';
+  c.style.opacity='0';c.style.transform='translateY(25px) scale(.95)';
+  c.innerHTML=`<div class="amen-icon">${it.i}</div><div class="amen-label">${it.l}</div>`;
+  aG.appendChild(c);
+  setTimeout(()=>{c.style.transition='all .5s cubic-bezier(.16,1,.3,1)';
+    c.style.opacity='1';c.style.transform='none';},60+idx*70);});}
+document.querySelectorAll('.amen-tab').forEach(t=>{t.addEventListener('click',()=>{
+  document.querySelectorAll('.amen-tab').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');rA(t.dataset.cat);});});
+rA('fitness');
+
+/* ═══ LIGHTBOX ═══ */
+const lb=document.getElementById('lightbox'),lbi=document.getElementById('lightboxImg'),
+  lbc=document.getElementById('lightboxClose');
+document.querySelectorAll('.gallery-item').forEach(it=>{it.addEventListener('click',()=>{
+  lbi.src=it.dataset.src;lb.classList.add('active');document.body.style.overflow='hidden';});});
+lbc.addEventListener('click',clb);lb.addEventListener('click',e=>{if(e.target===lb)clb();});
+function clb(){lb.classList.remove('active');document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')clb();});
+
+/* ═══ BACK TO TOP ═══ */
+const btt=document.getElementById('backToTop');
+window.addEventListener('scroll',()=>btt.classList.toggle('show',window.scrollY>500));
+btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+/* ═══ FORM ═══ */
+document.getElementById('enquiryForm').addEventListener('submit',e=>{e.preventDefault();
+  const b=e.target.querySelector('.form-submit');b.textContent='Submitting...';b.disabled=true;
+  setTimeout(()=>{b.textContent='✓ Enquiry Submitted!';b.style.background='#4ade80';
+    setTimeout(()=>{b.textContent='Submit Enquiry →';b.style.background='';b.disabled=false;
+      e.target.reset();},2500);},1500);});
+
+/* ═══ SMOOTH SCROLL ═══ */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{
+  e.preventDefault();const t=document.querySelector(a.getAttribute('href'));
+  if(t){const off=header.offsetHeight+10;
+    window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-off,behavior:'smooth'});}});});
+
+/* ═══ 3D TILT ═══ */
+document.querySelectorAll('.geo-card,.config-card,.stat-card,.loc-card').forEach(c=>{
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();
+    const rx=(e.clientY-r.top-r.height/2)/12,ry=(r.width/2-(e.clientX-r.left))/12;
+    c.style.transform=`perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;});
+  c.addEventListener('mouseleave',()=>{c.style.transform='';c.style.transition='transform .5s cubic-bezier(.16,1,.3,1)';});
+  c.addEventListener('mouseenter',()=>{c.style.transition='none';});});
+
+/* ═══ RIPPLE EFFECT ═══ */
+document.querySelectorAll('.ripple-container').forEach(el=>{
+  el.addEventListener('click',e=>{const r=el.getBoundingClientRect();
+    const rp=document.createElement('span');rp.className='ripple-effect';
+    rp.style.left=(e.clientX-r.left)+'px';rp.style.top=(e.clientY-r.top)+'px';
+    rp.style.width=rp.style.height=Math.max(r.width,r.height)+'px';
+    el.appendChild(rp);setTimeout(()=>rp.remove(),600);});});
+
+/* ═══ MAGNETIC BUTTONS ═══ */
+document.querySelectorAll('.btn-primary,.header-cta,.config-btn').forEach(b=>{
+  b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();
+    b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.15}px,${(e.clientY-r.top-r.height/2)*.15}px)`;});
+  b.addEventListener('mouseleave',()=>{b.style.transform='';});});
+/* ═══ PLANS TABS ═══ */
+document.querySelectorAll('.plans-tab').forEach(tab=>{tab.addEventListener('click',()=>{
+  document.querySelectorAll('.plans-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  document.querySelectorAll('.plans-content').forEach(c=>c.classList.remove('active'));
+  const id = tab.dataset.plan === 'master' ? 'planMaster' : 'planFloor';
+  document.getElementById(id).classList.add('active');
+});});
+
+/* ═══ ZOOM ICONS (open in lightbox) ═══ */
+document.querySelectorAll('.zoom-icon[data-src]').forEach(z=>{z.addEventListener('click',e=>{
+  e.stopPropagation();lbi.src=z.dataset.src;lb.classList.add('active');document.body.style.overflow='hidden';});});
+document.querySelectorAll('.master-img[data-src]').forEach(m=>{m.style.cursor='pointer';
+  m.addEventListener('click',()=>{lbi.src=m.dataset.src;lb.classList.add('active');document.body.style.overflow='hidden';});});
+
+/* ═══ SCROLL PROGRESS BAR ═══ */
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  if (progressBar) progressBar.style.width = scrolled + '%';
+});
+
+/* ═══ BROCHURE MODAL LOGIC ═══ */
+const bModal = document.getElementById('brochureModal');
+const openBBtn = document.getElementById('openBrochureModal');
+const closeBBtn = document.getElementById('closeBrochureModal');
+const bForm = document.getElementById('brochureForm');
+
+function openBModal() { if (bModal) { bModal.classList.add('active'); document.body.style.overflow = 'hidden'; } }
+function closeBModal() { if (bModal) { bModal.classList.remove('active'); document.body.style.overflow = ''; } }
+
+if (openBBtn) openBBtn.addEventListener('click', openBModal);
+if (closeBBtn) closeBBtn.addEventListener('click', closeBModal);
+if (bModal) bModal.addEventListener('click', (e) => { if (e.target === bModal) closeBModal(); });
+
+// Attach brochure buttons across the page
+document.querySelectorAll('a[href="#"]').forEach(a => {
+  if (a.textContent.includes('Download Brochure')) {
+    a.addEventListener('click', (e) => { e.preventDefault(); openBModal(); });
+  }
+});
+
+if (bForm) {
+  bForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = bForm.querySelector('button[type="submit"]');
+    btn.textContent = 'Preparing Download...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = '✓ Download Starting!';
+      btn.style.background = '#4ade80';
+      setTimeout(() => {
+        closeBModal();
+        btn.textContent = 'Instant Download →';
+        btn.style.background = '';
+        btn.disabled = false;
+        bForm.reset();
+      }, 2000);
+    }, 1200);
+  });
+/* ═══ ENQUIRY MODAL LOGIC ═══ */
+const eModal = document.getElementById('enquiryModal');
+const closeEBtn = document.getElementById('closeEnquiryModal');
+const mEnquiryForm = document.getElementById('modalEnquiryForm');
+
+function openEModal(prefillConfig) {
+  if (eModal) {
+    if (prefillConfig && mEnquiryForm) {
+      const select = mEnquiryForm.querySelector('select[name="m_configuration"]');
+      if (select) {
+        for (let opt of select.options) {
+          if (opt.text.toLowerCase().includes(prefillConfig.toLowerCase())) {
+            select.value = opt.value;
+            break;
+          }
+        }
+      }
+    }
+    eModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeEModal() {
+  if (eModal) {
+    eModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+if (closeEBtn) closeEBtn.addEventListener('click', closeEModal);
+if (eModal) eModal.addEventListener('click', (e) => { if (e.target === eModal) closeEModal(); });
+
+// Attach to all Enquire Now buttons (Header, Mobile, Bottom Bar, and Hero/Sections)
+document.querySelectorAll('.header-cta, a.header-cta, #mEnquireBtn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openEModal();
+  });
+});
+
+// Attach to all "Know Pricing" & "Request Floor Plan" buttons
+document.querySelectorAll('.config-btn, .floor-card .btn-primary').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const card = btn.closest('.config-card, .floor-card');
+    let title = '';
+    if (card) {
+      const h3 = card.querySelector('h3, h4');
+      if (h3) title = h3.textContent.trim();
+    }
+    openEModal(title);
+  });
+});
+
+if (mEnquiryForm) {
+  mEnquiryForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = mEnquiryForm.querySelector('button[type="submit"]');
+    btn.textContent = 'Submitting Enquiry...';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = '✓ Enquiry Received!';
+      btn.style.background = '#4ade80';
+      setTimeout(() => {
+        closeEModal();
+        btn.textContent = 'Submit Enquiry →';
+        btn.style.background = '';
+        btn.disabled = false;
+        mEnquiryForm.reset();
+      }, 2000);
+    }, 1200);
+  });
+}
+</script>
+</body>
+</html>

@@ -59,7 +59,7 @@ export async function onRequestGet(context) {
         "addressCountry": "IN"
       },
       "url": "${canonicalUrl}",
-      "telephone": "+91 20 2567 9292"
+      "telephone": "+91 77440 09295"
     },
     {
       "@type": "BreadcrumbList",

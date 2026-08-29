@@ -3,7 +3,7 @@
 # Domain: https://siddhashila-eevva.co.in
 # ==============================================================================
 
-# Priority 1: Googlebot & Official Search Engine Crawlers (Unrestricted Fast Crawl)
+# Priority 1: Googlebot & Global Search Engine Crawlers (Unrestricted Fast Crawl)
 User-agent: Googlebot
 User-agent: Googlebot-Image
 User-agent: Googlebot-Mobile
@@ -15,6 +15,15 @@ User-agent: AdsBot-Google-Mobile
 User-agent: Bingbot
 User-agent: Slurp
 User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+User-agent: Applebot
+User-agent: Qwantify
+User-agent: SeznamBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: PerplexityBot
+User-agent: Claude-Web
 Allow: /
 
 # Priority 2: General Search Crawlers
@@ -43,11 +52,12 @@ Disallow: /
 User-agent: PetalBot
 Disallow: /
 
-# Sitemap Index & Child Declarations for Google Search Console
+# Sitemap Index & Child Declarations for Search Engines
 Sitemap: https://siddhashila-eevva.co.in/sitemap-index.xml
 Sitemap: https://siddhashila-eevva.co.in/sitemap.xml
-Sitemap: https://siddhashila-eevva.co.in/sitemap-configs.xml
+Sitemap: https://siddhashila-eevva.co.in/sitemap-core.xml
+Sitemap: https://siddhashila-eevva.co.in/sitemap-flats-1.xml
+Sitemap: https://siddhashila-eevva.co.in/sitemap-flats-2.xml
 Sitemap: https://siddhashila-eevva.co.in/sitemap-commute.xml
-Sitemap: https://siddhashila-eevva.co.in/sitemap-schools.xml
-Sitemap: https://siddhashila-eevva.co.in/sitemap-landmarks.xml
+Sitemap: https://siddhashila-eevva.co.in/sitemap-schools-landmarks.xml
 Sitemap: https://siddhashila-eevva.co.in/sitemap-guides.xml

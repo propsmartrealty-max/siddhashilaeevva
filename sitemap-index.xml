@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://siddhashila-eevva.co.in/sitemap.xml</loc>
+    <loc>https://siddhashila-eevva.co.in/sitemap-core.xml</loc>
     <lastmod>2026-08-29</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://siddhashila-eevva.co.in/sitemap-configs.xml</loc>
+    <loc>https://siddhashila-eevva.co.in/sitemap-flats-1.xml</loc>
+    <lastmod>2026-08-29</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>https://siddhashila-eevva.co.in/sitemap-flats-2.xml</loc>
     <lastmod>2026-08-29</lastmod>
   </sitemap>
   <sitemap>
@@ -13,11 +17,7 @@
     <lastmod>2026-08-29</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://siddhashila-eevva.co.in/sitemap-schools.xml</loc>
-    <lastmod>2026-08-29</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>https://siddhashila-eevva.co.in/sitemap-landmarks.xml</loc>
+    <loc>https://siddhashila-eevva.co.in/sitemap-schools-landmarks.xml</loc>
     <lastmod>2026-08-29</lastmod>
   </sitemap>
   <sitemap>

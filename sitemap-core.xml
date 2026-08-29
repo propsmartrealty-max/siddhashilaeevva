@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+                            http://www.google.com/schemas/sitemap-image/1.1 
+                            http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+<url>
+    <loc>https://siddhashila-eevva.co.in/</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://siddhashilaeevva.com/wp-content/uploads/2026/08/Banner-1.webp</image:loc>
+      <image:title>Siddhashila EEVVA Punawale Luxury 2 and 3 BHK Flats Official Site</image:title>
+      <image:caption>Siddhashila EEVVA 3.5 acres residential project on 30m DP road Punawale</image:caption>
+      <image:geo_location>Punawale, Pune, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eye_Level_Cam_012.webp</image:loc>
+      <image:title>Siddhashila EEVVA Architecture Sri Yantra Rhombus Geometry</image:title>
+      <image:caption>Rhombus geometry towers with only 1 shared wall and 60+ amenities</image:caption>
+      <image:geo_location>Punawale, Pune, India</image:geo_location>
+    </image:image>
+  </url>
+</urlset>

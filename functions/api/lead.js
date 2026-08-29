@@ -35,10 +35,13 @@ export async function onRequestPost(context) {
       });
     }
 
-    // Lead payload with geo-enrichment from Cloudflare Edge
+    // Lead payload with geo-enrichment from Cloudflare Edge and env variables
+    const dispatchKey = (context.env && context.env.DISPATCH_KEY) || 'b3917823-3b6b-4e0c-99c0-2f3b9c7b912a';
+    const projectName = (context.env && context.env.PROJECT_NAME) || 'Siddhashila EEVVA Punawale';
+
     const leadPayload = {
-      access_key: 'b3917823-3b6b-4e0c-99c0-2f3b9c7b912a',
-      subject: `🚨 VIP Lead: ${name} (${configuration}) - Siddhashila EEVVA`,
+      access_key: dispatchKey,
+      subject: `🚨 VIP Lead: ${name} (${configuration}) - ${projectName}`,
       from_name: 'EEVVA Edge Bot',
       name: name,
       phone: phone,

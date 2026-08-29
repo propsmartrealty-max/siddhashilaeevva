@@ -1,0 +1,17 @@
+{
+  "name": "siddhashilaeevva",
+  "version": "1.0.0",
+  "description": "Siddhashila EEVVA Punawale - Official Luxury Real Estate Platform with Cloudflare Pages Functions and Programmatic SEO Engine",
+  "scripts": {
+    "dev": "wrangler pages dev . --port 4500",
+    "build": "node generate_sitemaps.js",
+    "deploy": "wrangler pages deploy . --project-name=siddhashilaeevva",
+    "tail": "wrangler pages deployment tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.78.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

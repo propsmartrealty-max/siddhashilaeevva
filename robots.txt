@@ -39,5 +39,6 @@ Disallow: /
 User-agent: PetalBot
 Disallow: /
 
-# Sitemap Index Declaration for Search Console
+# Sitemap Index Declarations for Search Console
+Sitemap: https://siddhashila-eevva.co.in/sitemap-index.xml
 Sitemap: https://siddhashila-eevva.co.in/sitemap.xml

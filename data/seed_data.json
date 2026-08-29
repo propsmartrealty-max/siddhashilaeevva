@@ -1,0 +1,105 @@
+{
+  "project": {
+    "name": "Siddhashila EEVVA",
+    "developer": "Siddhashila Group",
+    "location": "Punawale, Pune",
+    "address": "30-mtr Wide DP Road, Punawale, Pimpri-Chinchwad, Pune 411033",
+    "rera": "PM1260002503079",
+    "rera_url": "https://maharerait.maharashtra.gov.in/",
+    "land_parcel": "3.5 Acres",
+    "towers": "3 Residential Towers",
+    "storeys": "24 Storey",
+    "parking": "4 Levels Dedicated Parking",
+    "amenities_count": "60+ Lifestyle Amenities",
+    "amenities_area": "46,000 sq.ft. Central Amenity Zone",
+    "commercial": "9 Storey Boutique Commercial Hub",
+    "starting_price": "₹83 Lakhs*",
+    "phone": "+91 12345 67890",
+    "domain": "https://siddhashila-eevva.co.in"
+  },
+  "configurations": [
+    {
+      "id": "2-bhk",
+      "slug": "2-bhk-classic",
+      "name": "2 BHK Classic",
+      "type": "2 BHK",
+      "carpet": "801 – 806 SQ.FT.",
+      "price": "₹83 Lacs*",
+      "price_num": 8300000,
+      "balconies": "1 Private Balcony",
+      "bathrooms": "2 Luxury Bathrooms",
+      "features": ["Zero space wastage layout", "Sri Yantra rhombus cross-ventilation", "Only 1 shared wall", "Premium vitrified tiles"]
+    },
+    {
+      "id": "3-bhk-premia",
+      "slug": "3-bhk-premia",
+      "name": "3 BHK Premia",
+      "type": "3 BHK",
+      "carpet": "969 – 973 SQ.FT.",
+      "price": "₹1.05 Cr*",
+      "price_num": 10500000,
+      "balconies": "2 Panoramic Balconies",
+      "bathrooms": "3 Modern Bathrooms",
+      "features": ["Spacious living & dining lounge", "Corner unit with multi-directional sunlight", "Master suite with wooden-finish flooring", "Smart digital lock access"]
+    },
+    {
+      "id": "3-bhk-luxuria",
+      "slug": "3-bhk-luxuria",
+      "name": "3 BHK Luxuria",
+      "type": "3 BHK",
+      "carpet": "1102 SQ.FT.",
+      "price": "₹1.25 Cr*",
+      "price_num": 12500000,
+      "balconies": "3 Scenic Balconies",
+      "bathrooms": "3 Designer Bathrooms",
+      "features": ["Ultra-expansive master bedroom", "Dry kitchen utility zone", "Unobstructed hill & skyline views", "Dedicated walk-in wardrobe space"]
+    }
+  ],
+  "localities": [
+    { "name": "Punawale", "slug": "punawale", "dist": "0 km (Immediate)", "avg_rate": "₹6,800 - ₹7,600/sq.ft.", "highlights": "Fastest growing West Pune corridor with 30m DP road" },
+    { "name": "Hinjewadi", "slug": "hinjewadi", "dist": "4.2 km (8-10 Mins)", "avg_rate": "₹7,800 - ₹9,200/sq.ft.", "highlights": "Pune's largest IT tech hub employing 400,000+ professionals" },
+    { "name": "Wakad", "slug": "wakad", "dist": "3.5 km (7 Mins)", "avg_rate": "₹8,200 - ₹9,800/sq.ft.", "highlights": "Established lifestyle hub with premium dining, retail and schools" },
+    { "name": "Tathawade", "slug": "tathawade", "dist": "2.8 km (5 Mins)", "avg_rate": "₹7,200 - ₹8,400/sq.ft.", "highlights": "Premier educational corridor hosting colleges and universities" },
+    { "name": "Ravet", "slug": "ravet", "dist": "3.1 km (6 Mins)", "avg_rate": "₹6,900 - ₹7,800/sq.ft.", "highlights": "Gateway to Mumbai-Pune expressway and BRTS terminus" },
+    { "name": "Baner", "slug": "baner", "dist": "8.5 km (15 Mins)", "avg_rate": "₹9,500 - ₹12,500/sq.ft.", "highlights": "Prime high-end residential and commercial commercial high-street" },
+    { "name": "Balewadi", "slug": "balewadi", "dist": "7.8 km (14 Mins)", "avg_rate": "₹9,200 - ₹11,800/sq.ft.", "highlights": "Balewadi High Street entertainment hub and sports complex" },
+    { "name": "Kiwale", "slug": "kiwale", "dist": "4.5 km (8 Mins)", "avg_rate": "₹6,200 - ₹7,100/sq.ft.", "highlights": "Upcoming residential pocket with immediate highway connectivity" }
+  ],
+  "workplaces": [
+    { "name": "Infosys Hinjewadi Phase 2", "slug": "infosys-hinjewadi", "dist": "5.5 km", "time": "10-12 Mins", "type": "IT Campus" },
+    { "name": "TCS Sahyadri Park Hinjewadi Phase 3", "slug": "tcs-sahyadri-park", "dist": "8.2 km", "time": "15-18 Mins", "type": "IT Campus" },
+    { "name": "Wipro Circle Hinjewadi Phase 1", "slug": "wipro-circle-hinjewadi", "dist": "4.8 km", "time": "9-11 Mins", "type": "Tech Landmark" },
+    { "name": "Quadron Business Park", "slug": "quadron-business-park", "dist": "6.1 km", "time": "12 Mins", "type": "IT SEZ" },
+    { "name": "Embassy TechZone Hinjewadi", "slug": "embassy-techzone", "dist": "6.8 km", "time": "13 Mins", "type": "Tech Park" },
+    { "name": "Cognizant Hinjewadi", "slug": "cognizant-hinjewadi", "dist": "5.2 km", "time": "10 Mins", "type": "IT Campus" },
+    { "name": "Blue Ridge IT SEZ", "slug": "blue-ridge-it-sez", "dist": "5.9 km", "time": "12 Mins", "type": "SEZ Campus" },
+    { "name": "Talawade IT Park", "slug": "talawade-it-park", "dist": "12.5 km", "time": "22 Mins", "type": "Industrial IT Park" }
+  ],
+  "schools": [
+    { "name": "Birla Open Minds International School", "slug": "birla-open-minds-punawale", "dist": "1.2 km", "time": "3 Mins", "board": "CBSE" },
+    { "name": "Podar International School Punawale", "slug": "podar-international-punawale", "dist": "1.8 km", "time": "4 Mins", "board": "CBSE" },
+    { "name": "Cambridge International School", "slug": "cambridge-international-wakad", "dist": "3.4 km", "time": "7 Mins", "board": "IGCSE/CBSE" },
+    { "name": "JSPM Rajarshi Shahu College", "slug": "jspm-college-tathawade", "dist": "2.5 km", "time": "5 Mins", "board": "Higher Education" },
+    { "name": "DY Patil International University", "slug": "dy-patil-university-tathawade", "dist": "3.1 km", "time": "6 Mins", "board": "University Campus" },
+    { "name": "Indira Institute of Management", "slug": "indira-institute-wakad", "dist": "3.8 km", "time": "8 Mins", "board": "Management Institute" },
+    { "name": "Crimson Anisha Global School", "slug": "crimson-anisha-global", "dist": "2.9 km", "time": "6 Mins", "board": "CBSE" }
+  ],
+  "hospitals": [
+    { "name": "Aditya Birla Memorial Hospital", "slug": "aditya-birla-hospital", "dist": "4.5 km", "time": "9 Mins", "type": "Multi-Speciality JCI Accredited" },
+    { "name": "Life Care Hospital Punawale", "slug": "life-care-hospital-punawale", "dist": "1.1 km", "time": "3 Mins", "type": "Emergency & General Healthcare" },
+    { "name": "Surya Mother & Child Super Speciality", "slug": "surya-hospital-wakad", "dist": "4.2 km", "time": "8 Mins", "type": "Pediatric & Maternity Care" },
+    { "name": "Ojas Multispeciality Hospital", "slug": "ojas-hospital-ravet", "dist": "3.6 km", "time": "7 Mins", "type": "Tertiary Care Hospital" }
+  ],
+  "retail": [
+    { "name": "Phoenix Mall of the Millennium", "slug": "phoenix-mall-of-millennium", "dist": "4.8 km", "time": "10 Mins", "type": "Mega Luxury Mall" },
+    { "name": "18 Latitude Mall Punawale", "slug": "18-latitude-mall", "dist": "1.5 km", "time": "3 Mins", "type": "Retail & Shopping Complex" },
+    { "name": "D-Mart Tathawade", "slug": "dmart-tathawade", "dist": "2.9 km", "time": "6 Mins", "type": "Hypermarket" },
+    { "name": "Elpro City Square Chinchwad", "slug": "elpro-city-square", "dist": "6.5 km", "time": "14 Mins", "type": "Cinema & Retail Mall" }
+  ],
+  "budgets": [
+    { "label": "Under 85 Lakhs", "slug": "under-85-lakhs", "max": 8500000, "ideal_for": "2 BHK Classic" },
+    { "label": "Under 90 Lakhs", "slug": "under-90-lakhs", "max": 9000000, "ideal_for": "2 BHK Classic with Premium Floor Rise" },
+    { "label": "Under 1.1 Crore", "slug": "under-1-1-crore", "max": 11000000, "ideal_for": "3 BHK Premia" },
+    { "label": "Under 1.3 Crore", "slug": "under-1-3-crore", "max": 13000000, "ideal_for": "3 BHK Luxuria" }
+  ]
+}

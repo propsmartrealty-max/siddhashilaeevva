@@ -17,11 +17,15 @@ User-agent: Slurp
 User-agent: DuckDuckBot
 Allow: /
 
-# Priority 2: General Crawlers
+# Priority 2: General Search Crawlers
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /functions/
+Disallow: /scratch/
+Disallow: /node_modules/
+Disallow: /package.json
+Disallow: /wrangler.toml
 
 # Priority 3: Scraper & Backlink Extraction Bots (Throttled Rate Limits)
 User-agent: AhrefsBot
@@ -39,6 +43,11 @@ Disallow: /
 User-agent: PetalBot
 Disallow: /
 
-# Sitemap Index Declarations for Search Console
+# Sitemap Index & Child Declarations for Google Search Console
 Sitemap: https://siddhashila-eevva.co.in/sitemap-index.xml
 Sitemap: https://siddhashila-eevva.co.in/sitemap.xml
+Sitemap: https://siddhashila-eevva.co.in/sitemap-configs.xml
+Sitemap: https://siddhashila-eevva.co.in/sitemap-commute.xml
+Sitemap: https://siddhashila-eevva.co.in/sitemap-schools.xml
+Sitemap: https://siddhashila-eevva.co.in/sitemap-landmarks.xml
+Sitemap: https://siddhashila-eevva.co.in/sitemap-guides.xml

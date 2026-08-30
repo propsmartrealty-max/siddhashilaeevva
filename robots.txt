@@ -61,3 +61,4 @@ Sitemap: https://siddhashila-eevva.co.in/sitemap-flats-2.xml
 Sitemap: https://siddhashila-eevva.co.in/sitemap-commute.xml
 Sitemap: https://siddhashila-eevva.co.in/sitemap-schools-landmarks.xml
 Sitemap: https://siddhashila-eevva.co.in/sitemap-guides.xml
+Sitemap: https://siddhashila-eevva.co.in/google-merchant-feed.xml

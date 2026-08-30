@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+  <channel>
+    <title>Siddhashila EEVVA Punawale - Official Residential Inventory</title>
+    <link>https://siddhashila-eevva.co.in</link>
+    <description>Google Merchant Product Feed for Siddhashila EEVVA 2 and 3 BHK luxury residences in Punawale, Pune.</description>
+    <item>
+      <g:id>EEVVA-2BHK-CLASSIC</g:id>
+      <g:title>Siddhashila EEVVA 2 BHK Classic Luxury Flat in Punawale, Pune (806 sq.ft.)</g:title>
+      <g:description>Buy premium 2 BHK Classic residence in Punawale, Pune with 801-806 sq.ft. carpet area. 3.5-acre Sri Yantra rhombus architecture, 60+ lifestyle amenities, 4-level parking on 30m DP road near Hinjewadi IT Park. MahaRERA: PM1260002503079.</g:description>
+      <g:link>https://siddhashila-eevva.co.in/#configurations</g:link>
+      <g:image_link>https://siddhashilaeevva.com/wp-content/uploads/2026/03/1.webp</g:image_link>
+      <g:additional_image_link>https://siddhashilaeevva.com/wp-content/uploads/2026/03/Semi-Ariel-NIght-Cam4.webp</g:additional_image_link>
+      <g:price>8300000.00 INR</g:price>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:brand>Siddhashila Group</g:brand>
+      <g:google_product_category>Business &amp; Industrial &gt; Real Estate &gt; Residential Properties</g:google_product_category>
+      <g:product_type>Real Estate &gt; Residential &gt; 2 BHK Apartments</g:product_type>
+      <g:mpn>EEVVA-2BHK-806</g:mpn>
+      <g:item_group_id>EEVVA-RESIDENCES</g:item_group_id>
+    </item>
+    <item>
+      <g:id>EEVVA-3BHK-PREMIA</g:id>
+      <g:title>Siddhashila EEVVA 3 BHK Premia Luxury Flat in Punawale, Pune (973 sq.ft.)</g:title>
+      <g:description>Spacious 3 BHK Premia luxury apartment with 969-973 sq.ft. carpet area, 3 bedrooms, 3 bathrooms, and 2 balconies near Hinjewadi IT corridor. Only 1 shared wall per home for superior privacy. MahaRERA: PM1260002503079.</g:description>
+      <g:link>https://siddhashila-eevva.co.in/#configurations</g:link>
+      <g:image_link>https://siddhashila.com/assets/img/residential/eevva/3BHKPremia.jpg</g:image_link>
+      <g:additional_image_link>https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eye_Level_Cam_012.webp</g:additional_image_link>
+      <g:price>10500000.00 INR</g:price>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:brand>Siddhashila Group</g:brand>
+      <g:google_product_category>Business &amp; Industrial &gt; Real Estate &gt; Residential Properties</g:google_product_category>
+      <g:product_type>Real Estate &gt; Residential &gt; 3 BHK Apartments</g:product_type>
+      <g:mpn>EEVVA-3BHK-973</g:mpn>
+      <g:item_group_id>EEVVA-RESIDENCES</g:item_group_id>
+    </item>
+    <item>
+      <g:id>EEVVA-3BHK-LUXURIA</g:id>
+      <g:title>Siddhashila EEVVA 3 BHK Luxuria Ultra-Spacious Flat in Punawale, Pune (1102 sq.ft.)</g:title>
+      <g:description>Ultra-luxury 3 BHK Luxuria residence with 1102 sq.ft. carpet area, 3 scenic balconies, dry kitchen, and panoramic corridor views. Access to 46,000 sq.ft. podium amenities deck. MahaRERA: PM1260002503079.</g:description>
+      <g:link>https://siddhashila-eevva.co.in/#configurations</g:link>
+      <g:image_link>https://siddhashila.com/assets/img/residential/eevva/3BHKLuxuria.jpg</g:image_link>
+      <g:additional_image_link>https://siddhashilaeevva.com/wp-content/uploads/2026/03/Semi-Ariel-NIght-Cam4.webp</g:additional_image_link>
+      <g:price>12500000.00 INR</g:price>
+      <g:condition>new</g:condition>
+      <g:availability>in_stock</g:availability>
+      <g:brand>Siddhashila Group</g:brand>
+      <g:google_product_category>Business &amp; Industrial &gt; Real Estate &gt; Residential Properties</g:google_product_category>
+      <g:product_type>Real Estate &gt; Residential &gt; 3 BHK Luxury Apartments</g:product_type>
+      <g:mpn>EEVVA-3BHK-1102</g:mpn>
+      <g:item_group_id>EEVVA-RESIDENCES</g:item_group_id>
+    </item>
+  </channel>
+</rss>

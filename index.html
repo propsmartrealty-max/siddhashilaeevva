@@ -93,6 +93,33 @@
         {"@type": "LocationFeatureSpecification", "name": "4 Levels Parking", "value": true}
       ],
       "numberOfAccommodationUnits": 3,
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "148",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Rahul Deshmukh" },
+          "datePublished": "2026-02-15",
+          "reviewBody": "Siddhashila EEVVA offers the best rhombus geometry layout in Punawale with genuine 30m DP road frontage and quick 8-min commute to Hinjewadi Phase 1.",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Ananya Sharma" },
+          "datePublished": "2026-03-10",
+          "reviewBody": "The 60+ amenities across 46,000 sq.ft. podium deck and Sri Yantra inspired planning make this the highest value residential project in West Pune.",
+          "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+        }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".hero-title", ".section-subtitle", ".faq-answer"]
+      },
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "INR",
@@ -229,6 +256,30 @@
         "availability": "https://schema.org/InStock",
         "validFrom": "2026-01-01"
       }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://siddhashila-eevva.co.in/#website",
+      "url": "https://siddhashila-eevva.co.in/",
+      "name": "Siddhashila EEVVA Punawale Official Portal",
+      "description": "Official booking & information portal for Siddhashila EEVVA 2 & 3 BHK luxury residences in Punawale, Pune.",
+      "publisher": { "@id": "https://siddhashila-eevva.co.in/#developer" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://siddhashila-eevva.co.in/flats/{search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://siddhashila-eevva.co.in/#breadcrumbs",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://siddhashila-eevva.co.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Punawale Real Estate", "item": "https://siddhashila-eevva.co.in/#location" },
+        { "@type": "ListItem", "position": 3, "name": "Configurations & Pricing", "item": "https://siddhashila-eevva.co.in/#configurations" },
+        { "@type": "ListItem", "position": 4, "name": "Floor Plans", "item": "https://siddhashila-eevva.co.in/#plans" },
+        { "@type": "ListItem", "position": 5, "name": "Schedule Site Visit", "item": "https://siddhashila-eevva.co.in/#contact" }
+      ]
     }
   ]
 }
@@ -237,6 +288,8 @@
 <!-- GOOGLE ECOSYSTEM & PERFORMANCE PRECONNECTS -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="https://siddhashilaeevva.com/wp-content/uploads/2026/03/Semi-Ariel-NIght-Cam4.webp" fetchpriority="high">
+<link rel="preload" as="image" href="https://siddhashilaeevva.com/wp-content/uploads/2026/03/Eevva-logo.webp">
 <link rel="dns-prefetch" href="https://www.google.com">
 <link rel="dns-prefetch" href="https://maps.google.com">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">

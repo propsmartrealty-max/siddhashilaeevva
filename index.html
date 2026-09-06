@@ -1060,7 +1060,10 @@ footer{background:var(--dark);color:rgba(255,255,255,.5);padding:3.5rem 2rem 2re
   box-shadow:0 4px 14px rgba(168,159,122,0.4);
 }
 
-@media(max-width:768px){
+  /* Mobile-First Touch Target Hardening & Input Optimization */
+  input, select, textarea { font-size: 16px !important; } /* Prevents iOS auto-zoom on input focus */
+  button, .m-bar-btn, .plans-tab, .amen-tab { min-height: 44px; touch-action: manipulation; }
+  
   /* Navbar Pill for Mobile */
   .header-wrapper{top:.8rem;padding:0 .8rem;}
   header{
@@ -1072,64 +1075,64 @@ footer{background:var(--dark);color:rgba(255,255,255,.5);padding:3.5rem 2rem 2re
   .hamburger{display:flex;}
   
   /* Hero on mobile */
-  .hero{min-height:92vh;padding-top:4rem;}
-  .hero-title{letter-spacing:8px;line-height:1.15;}
-  .hero-tagline{letter-spacing:2px;font-size:1.1rem;}
-  .hero-location{font-size:.85rem;letter-spacing:2px;}
-  .hero-price{padding:.6rem 1.4rem;font-size:1rem;}
-  .hero-stats{gap:1rem;margin-top:2rem;}
-  .hero-stat{padding:0 .6rem;}
-  .hero-stat-num{font-size:1.7rem;}
-  .hero-stat-label{font-size:.68rem;letter-spacing:1px;}
+  .hero{min-height:94vh;padding-top:4.5rem;}
+  .hero-title{letter-spacing:2px;line-height:1.2;font-size:2.2rem;}
+  .hero-tagline{letter-spacing:1px;font-size:1rem;}
+  .hero-location{font-size:.82rem;letter-spacing:1px;}
+  .hero-price{padding:.7rem 1.4rem;font-size:1.05rem;}
+  .hero-stats{gap:.8rem;margin-top:1.8rem;grid-template-columns:repeat(2,1fr);}
+  .hero-stat{padding:.4rem .6rem;}
+  .hero-stat-num{font-size:1.6rem;}
+  .hero-stat-label{font-size:.7rem;letter-spacing:1px;}
   
   /* Section Spacing */
-  .section{padding:4.5rem 1.2rem;}
-  .section-header{margin-bottom:2.5rem;}
-  .section-title{font-size:1.85rem;}
-  .section-subtitle{font-size:.92rem;}
+  .section{padding:3.8rem 1rem;}
+  .section-header{margin-bottom:2rem;}
+  .section-title{font-size:1.75rem;}
+  .section-subtitle{font-size:.88rem;}
   
   /* Grids & Stacks */
   .geo-grid{grid-template-columns:1fr;gap:1rem;}
-  .geo-card{padding:1.8rem 1.2rem;}
-  .highlights-grid{grid-template-columns:1fr;gap:2rem;}
+  .geo-card{padding:1.6rem 1.2rem;}
+  .highlights-grid{grid-template-columns:1fr;gap:1.8rem;}
   .stat-cards{grid-template-columns:1fr 1fr;gap:.8rem;}
   .stat-card{padding:1.2rem 1rem;}
-  .stat-num{font-size:1.7rem;}
+  .stat-num{font-size:1.6rem;}
   .config-grid{grid-template-columns:1fr;gap:1.5rem;}
-  .config-card{padding:2.2rem 1.5rem;}
+  .config-card{padding:2rem 1.4rem;}
   
   /* Master Layout & Plans */
   .master-layout-wrap{grid-template-columns:1fr;gap:1.5rem;}
   .floor-plans-grid{grid-template-columns:1fr;gap:1.5rem;}
-  .plans-tabs{gap:.4rem;margin-bottom:2rem;}
-  .plans-tab{padding:.6rem 1.2rem;font-size:.78rem;}
+  .plans-tabs{gap:.4rem;margin-bottom:1.8rem;}
+  .plans-tab{padding:.7rem 1.4rem;font-size:.82rem;}
   
   /* Amenities */
-  .amen-tabs{gap:.35rem;margin-bottom:2rem;overflow-x:auto;padding-bottom:.5rem;justify-content:flex-start;scrollbar-width:none;}
+  .amen-tabs{gap:.4rem;margin-bottom:1.8rem;overflow-x:auto;padding-bottom:.5rem;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
   .amen-tabs::-webkit-scrollbar{display:none;}
-  .amen-tab{padding:.5rem 1rem;font-size:.72rem;flex-shrink:0;}
+  .amen-tab{padding:.6rem 1.2rem;font-size:.78rem;flex-shrink:0;}
   .amen-grid{grid-template-columns:repeat(2,1fr);gap:.8rem;}
   .amen-card{padding:1.2rem .8rem;}
   
   /* Gallery & Location */
   .gallery-masonry{columns:1;}
   .location-grid{grid-template-columns:1fr;gap:1rem;}
-  .loc-card{padding:1.5rem 1rem;}
+  .loc-card{padding:1.4rem 1rem;}
   
   /* Contact Form */
-  .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .contact-grid{grid-template-columns:1fr;gap:2rem;}
   .contact-form{padding:1.8rem 1.2rem;}
   
   /* Footer & Quick Actions */
   .footer-top{grid-template-columns:1fr;gap:1.8rem;}
-  footer{padding:2.5rem 1.2rem 5.5rem;}
+  footer{padding:2.5rem 1rem calc(5.5rem + env(safe-area-inset-bottom, 1rem));}
   .floating-dock{display:none;} /* Replaced by sticky mobile bottom bar */
-  .mobile-bottom-bar{display:grid;}
-  .back-to-top{bottom:4.5rem;right:1.2rem;width:42px;height:42px;}
+  .mobile-bottom-bar{display:grid;padding-bottom:calc(.65rem + env(safe-area-inset-bottom, 0px));}
+  .back-to-top{bottom:5.5rem;right:1rem;width:44px;height:44px;}
   
   /* Modal optimization for mobile keyboards */
-  .modal-box{padding:2.2rem 1.4rem;max-width:92vw;border-radius:22px;}
-  .modal-box h3{font-size:1.35rem;}
+  .modal-box{padding:2rem 1.2rem;max-width:94vw;border-radius:22px;}
+  .modal-box h3{font-size:1.3rem;}
 }
 
 /* ═══ SCROLL PROGRESS BAR ═══ */

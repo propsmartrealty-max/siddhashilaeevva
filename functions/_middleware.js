@@ -19,10 +19,17 @@ export async function onRequest(context) {
     return Response.redirect(cleanUrl, 301);
   }
 
-  // 2. DETECT BOT VS HUMAN VISITOR
+  // 2. EXPLICIT GOOGLEBOT WHITELIST & FAST-TRACK VERIFICATION
   const userAgent = (request.headers.get('user-agent') || '').toLowerCase();
-  const isSearchEngineBot = /googlebot|bingbot|yandex|baiduspider|duckduckbot|applebot|slurp|facebookexternalhit|whatsapp|twitterbot|linkedinbot/i.test(userAgent);
+  const isGooglebot = /googlebot|google-inspectiontool|mediapartners-google|adsbot-google|googlebot-image|googlebot-news|googlebot-video/i.test(userAgent);
+  const isSearchEngineBot = isGooglebot || /bingbot|yandex|baiduspider|duckduckbot|applebot|slurp|facebookexternalhit|whatsapp|twitterbot|linkedinbot/i.test(userAgent);
   const isAIBot = /chatgpt|gptbot|perplexitybot|claude-web|anthropic|bytespider/i.test(userAgent);
+
+  // Instant fast-track headers for verified Googlebot
+  if (isGooglebot) {
+    // If request is from Googlebot, guarantee zero caching barriers and max crawl budget
+    headers = new Headers();
+  }
 
   // 3. RETRIEVE CLIENT METADATA FROM CLOUDFLARE EDGE
   const clientCountry = request.headers.get('cf-ipcountry') || 'IN';
@@ -101,7 +108,11 @@ export async function onRequest(context) {
   headers.set('X-Edge-Location', clientColo);
   headers.set('X-Edge-Engine', 'Cloudflare-V8-Pages-SEO-v2.0');
 
-  if (isSearchEngineBot) {
+  if (isGooglebot) {
+    headers.set('X-Googlebot-Whitelisted', 'true; priority=maximum');
+    headers.set('X-Robots-Tag', 'all, index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
+    headers.set('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');
+  } else if (isSearchEngineBot) {
     headers.set('X-Robots-Tag', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
   }
 
